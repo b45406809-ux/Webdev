@@ -70,19 +70,39 @@ When I say **"find me more"**, **"find 10 salons in Bulawayo"**, or **"show me t
 
 For every lead passing step 3:
 - Generate a **standalone HTML file** named `{Business_Name}.html` (e.g., `Red_Rose_Hair_Beauty_Salon.html`)
-- Each file includes:
-  - **Header section** with business name, phone (+263 format), WhatsApp link
-  - **Message section** showing the personalized WhatsApp message with a "Copy" button
-  - **Full demo website** with unique design per category:
-    - **Salons**: Luxury rose gold (floating petals, shimmer animations)
-    - **Afrocentric**: Bold design (Kente borders, terracotta & amber colors)
-    - **Modern/Urban**: Neon cyberpunk (cyan/pink, glitch effects, scanlines)
-    - **Classic/Elegant**: Light theme (navy/gold, serif typography)
-    - **Natural/Organic**: Warm aesthetic (earth tones, animated waves)
-  - Real business info, rating, reviews (paraphrased, not verbatim)
-  - Service cards, testimonials, CTA buttons
-- Files are self-contained and open directly in any browser — no hosting needed
-- Set `status: "deployed"`
+
+### Key Standards (Must Demonstrate Professional Quality & Competitiveness)
+
+**Animation & Motion:**
+- Include smooth scroll effects, fade-ins on page load, hover animations on buttons/cards
+- Add subtle background animations (floating elements, gradients, shimmer effects)
+- Smooth transitions between sections
+- Make it feel **alive and polished**, not static
+
+**Professional Presentation:**
+- Show YOU as a pro developer — this website proves your skill level
+- Look competitive with modern websites in that business category
+- Clean typography, proper spacing, deliberate color choices
+- Smooth user experience (no jarring transitions)
+
+**Per-Business Category Design:**
+- **Salons/Beauty**: Luxury aesthetic (rose gold, floating elements, shimmer/gradient animations)
+- **Barbers/Grooming**: Modern & sharp (bold typography, clean lines, smooth transitions)
+- **Restaurants/Cafes**: Warm & inviting (soft colors, food imagery, appetite appeal)
+- **Tech/Modern**: Neon/cyberpunk (glitch effects, scanlines, bold colors, cutting-edge feel)
+- **Classic/Elegant**: Timeless (serif fonts, gold accents, sophisticated spacing)
+- **Natural/Organic**: Earthy & warm (animated waves, soft colors, nature-inspired)
+
+**Each Demo Must Include:**
+- Real business name, address, phone, rating, reviews (paraphrased, never verbatim)
+- Service/product cards with hover effects and descriptions
+- Testimonials or highlights (paraphrased from Google reviews)
+- Multiple sections (hero, services, about, CTA)
+- Professional CTAs (WhatsApp, call, booking buttons)
+- Responsive design (works on mobile & desktop)
+- No stock photos — use CSS patterns, gradients, SVG, or creative typography instead
+
+**Set `status: "deployed"`**
 
 ## 6. Draft the message (integrated in HTML file)
 
