@@ -1,0 +1,56 @@
+====================================
+DEMO WEBSITES - SEND TO CLIENTS
+====================================
+
+🌹 RED ROSE HAIR & BEAUTY SALONS
+Demo: https://b45406809-ux.github.io/Webdev/demos/red-rose-hair-and-beauty-salons/
+Phone: +263 772 784 491
+WhatsApp: https://wa.me/263772784491
+
+Example message:
+"Hi Red Rose! I built you a free website concept showing what's possible for your salon. Check it out: [DEMO LINK]. If you'd like it live and fully yours, I can do that for $50."
+
+---
+
+🌿 AFROKINK HAIR & BEAUTY SALON
+Demo: https://b45406809-ux.github.io/Webdev/demos/afrokink-hair-beauty-salon/
+Phone: +263 777 879 373
+WhatsApp: https://wa.me/263777879373
+
+---
+
+⚡ X-FAKTOR SALON
+Demo: https://b45406809-ux.github.io/Webdev/demos/x-faktor-salon/
+Phone: +263 771 674 309
+WhatsApp: https://wa.me/263771674309
+
+---
+
+💎 CHRIS HAIR SALON
+Demo: https://b45406809-ux.github.io/Webdev/demos/chris-hair-salon/
+Phone: +263 772 302 357
+WhatsApp: https://wa.me/263772302357
+
+---
+
+🌊 KINKY CURLY NATURAL HAIR SALON
+Demo: https://b45406809-ux.github.io/Webdev/demos/kinky-curly-natural-hair-salon/
+Phone: +263 779 502 058
+WhatsApp: https://wa.me/263779502058
+
+====================================
+
+WORKFLOW:
+1. Open WhatsApp chat with salon
+2. Send them the demo link
+3. Follow up with $50 build offer
+4. If they reply positively, you deliver the full live site
+
+Each demo showcases:
+- Luxury rose gold theme (Red Rose)
+- Bold Afrocentric design (Afrokink)
+- Modern neon effects (X-Faktor)
+- Classic elegant style (Chris Hair)
+- Organic warm aesthetic (Kinky Curly)
+
+All fully responsive, animated, and professional!
