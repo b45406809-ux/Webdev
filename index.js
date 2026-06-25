@@ -1,6 +1,5 @@
-import 'dotenv/config';
 import { readFileSync, writeFileSync } from 'fs';
-import { discover } from './scripts/discover.js';
+import { addLead } from './scripts/discover.js';
 import { buildDemo } from './scripts/buildDemo.js';
 import { deployDemo } from './scripts/deploy.js';
 import { draftMessage } from './scripts/draftMessage.js';
@@ -17,10 +16,7 @@ function saveJSON(path, data) {
 
 const [,, command, ...args] = process.argv;
 
-async function findMore(area = 'Harare', maxCategories = 3) {
-  console.log(`\n🔍 Discovering leads in ${area}...\n`);
-  const stats = await discover(area, maxCategories);
-
+async function buildQueue() {
   console.log(`\n🏗️  Building demos for new leads...`);
   let leads = loadJSON(LEADS_PATH);
   let builtCount = 0, deployedCount = 0;
@@ -42,7 +38,7 @@ async function findMore(area = 'Harare', maxCategories = 3) {
       console.log(`     ✓ ${liveUrl}`);
     } catch (err) {
       console.error(`  ✗ Failed for ${lead.name}: ${err.message}`);
-      lead.status = 'demo_built'; // keep partial progress
+      lead.status = 'demo_built';
     }
   }
 
@@ -66,13 +62,12 @@ async function findMore(area = 'Harare', maxCategories = 3) {
 
   console.log(`
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📊 Run summary
+📊 Build & deploy summary
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  Found:        ${stats.found} leads
-  Filtered out: ${stats.filteredOut} (no website filter + quality bar)
   Demos built:  ${builtCount}
   Deployed:     ${deployedCount}
-  Queue total:  ${report.count} ready to send
+  Added to queue: ${queuedCount}
+  Total ready:  ${report.count}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Queue report: ${report.path}
   `);
@@ -94,21 +89,60 @@ function optOut(businessName) {
   console.log(`✓ ${lead.name} marked as do-not-contact.`);
 }
 
+function listNew() {
+  const leads = loadJSON(LEADS_PATH);
+  const newLeads = leads.filter(l => l.status === 'new' && !l.do_not_contact);
+  if (newLeads.length === 0) { console.log('\nNo new leads waiting to build.\n'); return; }
+  console.log(`\n${newLeads.length} new leads ready to build:\n`);
+  newLeads.forEach((l, i) => {
+    console.log(`${i+1}. ${l.name} (${l.category}) — ${l.rating}⭐ | ${l.phone_raw}`);
+  });
+  console.log('\nRun: node index.js build');
+}
+
 switch (command) {
-  case 'find':
-    await findMore(args[0] || 'Harare', parseInt(args[1]) || 3);
+  case 'add':
+    if (args.length < 4) {
+      console.log(`\nUsage: node index.js add <name> <category> <area> <phone> [address] [rating] [reviews]\n`);
+      process.exit(1);
+    }
+    const result = addLead(args[0], args[1], args[2], args[3], args[4] || '', parseFloat(args[5]) || 0, parseInt(args[6]) || 0);
+    console.log(`\n${result.success ? '✓' : '✗'} ${result.message || result.error}\n`);
     break;
+
+  case 'list':
+    listNew();
+    break;
+
+  case 'build':
+    await buildQueue();
+    break;
+
   case 'queue':
     await showQueue();
     break;
+
   case 'optout':
     optOut(args.join(' '));
     break;
+
   default:
     console.log(`
-Usage:
-  node index.js find [area] [max-categories]   — discover + build + deploy + queue
-  node index.js queue                           — regenerate queue report
-  node index.js optout <business name>          — mark as do-not-contact
+🏪 Local Business Outreach Pipeline
+
+Workflow:
+  1. node index.js add <name> <category> <area> <phone> [address] [rating] [reviews]
+       → Add a lead manually (I'll search, you approve)
+  2. node index.js list
+       → See new leads waiting to build
+  3. node index.js build
+       → Generate demos, deploy to Cloudflare, draft WhatsApp messages
+  4. node index.js queue
+       → View/send from the queue report
+
+Examples:
+  node index.js add "Sunshine Salon" "salons" "Harare" "0712345678" "123 Main St" "4.5" "8"
+  node index.js add "Mike's Barber" "barbers" "Bulawayo" "+263712999888"
+  node index.js optout "Sunshine Salon"
     `);
 }

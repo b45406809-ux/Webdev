@@ -5,7 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "find": "node index.js find",
+    "add": "node index.js add",
+    "list": "node index.js list",
+    "build": "node index.js build",
     "queue": "node index.js queue"
   },
   "repository": {
