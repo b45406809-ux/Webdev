@@ -1,0 +1,263 @@
+// Design: Rich wine/rose gold luxury spa aesthetic for Red Rose Hair & Beauty
+export function generateLuxuryRose(lead) {
+  const stars = Math.round(lead.rating);
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${lead.name} | Hair & Beauty Harare</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#100008;--bg2:#1E0012;--bg3:#2A0A1A;
+  --rose:#C9747C;--gold:#C4924A;--cream:#F9EEF0;--text:#DCC8CC;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Lato',sans-serif;font-weight:300;overflow-x:hidden}
+
+/* Floating petals */
+.petals{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+@keyframes floatUp{
+  0%{transform:translateY(110vh) rotate(0deg) translateX(0);opacity:0}
+  8%{opacity:.7}
+  92%{opacity:.3}
+  100%{transform:translateY(-120px) rotate(540deg) translateX(var(--drift));opacity:0}
+}
+.petal{position:absolute;bottom:-40px;border-radius:50% 0 50% 0;
+  background:linear-gradient(135deg,rgba(180,80,100,.55),rgba(196,146,74,.35));
+  animation:floatUp linear infinite}
+.p1{width:14px;height:22px;left:8%;--drift:40px;animation-duration:14s;animation-delay:0s}
+.p2{width:9px;height:15px;left:22%;--drift:-25px;animation-duration:18s;animation-delay:4s}
+.p3{width:18px;height:28px;left:38%;--drift:50px;animation-duration:12s;animation-delay:8s}
+.p4{width:11px;height:19px;left:55%;--drift:-35px;animation-duration:16s;animation-delay:2s}
+.p5{width:7px;height:12px;left:70%;--drift:30px;animation-duration:10s;animation-delay:6s}
+.p6{width:16px;height:26px;left:82%;--drift:-45px;animation-duration:15s;animation-delay:11s}
+.p7{width:10px;height:17px;left:93%;--drift:20px;animation-duration:13s;animation-delay:3s}
+
+/* Banner */
+.banner{position:relative;z-index:10;background:linear-gradient(90deg,var(--bg3),#3D0A22,var(--bg3));
+  text-align:center;padding:10px 20px;font-size:.78rem;letter-spacing:.25em;text-transform:uppercase;
+  color:var(--gold);border-bottom:1px solid rgba(196,146,74,.3)}
+
+/* Hero */
+.hero{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;
+  justify-content:center;align-items:center;text-align:center;padding:80px 24px;
+  background:radial-gradient(ellipse at 30% 40%,rgba(180,40,80,.18) 0%,transparent 60%),
+             radial-gradient(ellipse at 80% 70%,rgba(196,146,74,.10) 0%,transparent 50%),
+             linear-gradient(180deg,var(--bg) 0%,var(--bg2) 60%,var(--bg3) 100%)}
+.hero::before{content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C4924A' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+
+@keyframes fadeDown{from{opacity:0;transform:translateY(-30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes shimmerText{
+  0%,100%{background-position:0% center}
+  50%{background-position:100% center}
+}
+
+.hero-eyebrow{font-size:.75rem;letter-spacing:.4em;text-transform:uppercase;color:var(--rose);
+  margin-bottom:24px;animation:fadeDown .8s ease forwards}
+.hero-name{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,7vw,5rem);
+  font-weight:700;line-height:1.1;margin-bottom:20px;
+  background:linear-gradient(135deg,#C4924A 0%,#E8C8A0 30%,#C9747C 50%,#E8C8A0 70%,#C4924A 100%);
+  background-size:200% auto;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation:fadeDown 1s ease .2s both,shimmerText 4s ease infinite 1.2s}
+.hero-divider{display:flex;align-items:center;gap:16px;margin:20px 0;animation:fadeUp .8s ease .4s both}
+.hero-divider::before,.hero-divider::after{content:'';flex:1;height:1px;
+  background:linear-gradient(90deg,transparent,var(--rose),transparent)}
+.hero-divider span{color:var(--rose);font-size:1.2rem}
+.hero-rating{display:flex;align-items:center;gap:10px;justify-content:center;margin-bottom:10px;
+  animation:fadeUp .8s ease .5s both}
+.stars{color:var(--gold);font-size:1.4rem;letter-spacing:3px}
+.rating-num{font-family:'Playfair Display',serif;font-size:2rem;color:var(--cream)}
+.review-tag{font-size:.82rem;color:var(--text);opacity:.7}
+.hero-addr{font-size:.9rem;color:var(--text);opacity:.6;margin:16px 0 40px;animation:fadeUp .8s ease .6s both}
+
+@keyframes shimmerBtn{0%{background-position:-200% center}100%{background-position:200% center}}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;padding:16px 40px;border-radius:50px;
+  font-family:'Lato',sans-serif;font-weight:700;font-size:1rem;text-decoration:none;
+  background:linear-gradient(90deg,#C4924A,#E8C8A0,#C9747C,#E8C8A0,#C4924A);
+  background-size:300% auto;color:#100008;letter-spacing:.05em;
+  animation:fadeUp .8s ease .7s both,shimmerBtn 3s linear infinite 1.5s;
+  box-shadow:0 0 30px rgba(196,146,74,.3)}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:50px;
+  font-size:.9rem;text-decoration:none;border:1px solid rgba(201,116,124,.5);color:var(--rose);
+  margin-left:12px;transition:all .2s;animation:fadeUp .8s ease .8s both}
+.btn-secondary:hover{background:rgba(201,116,124,.1);border-color:var(--rose)}
+.hero-btns{animation:fadeUp .8s ease .7s both}
+
+/* Scroll cue */
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+.scroll-cue{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
+  color:var(--rose);opacity:.5;font-size:1.4rem;animation:bounce 2s ease infinite}
+
+/* Sections */
+section{padding:80px 24px;max-width:900px;margin:0 auto;position:relative;z-index:1}
+.section-tag{font-size:.72rem;letter-spacing:.35em;text-transform:uppercase;color:var(--rose);margin-bottom:12px}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);color:var(--cream);
+  margin-bottom:40px;line-height:1.2}
+.section-title em{font-style:italic;color:var(--rose)}
+
+/* Services */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.service-card{background:rgba(255,255,255,.03);border:1px solid rgba(201,116,124,.15);
+  border-radius:16px;padding:28px;backdrop-filter:blur(8px);
+  transition:transform .3s,border-color .3s,box-shadow .3s;position:relative;overflow:hidden}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--rose),transparent);
+  transform:scaleX(0);transition:transform .3s}
+.service-card:hover{transform:translateY(-4px);border-color:rgba(201,116,124,.4);
+  box-shadow:0 20px 40px rgba(0,0,0,.4)}
+.service-card:hover::before{transform:scaleX(1)}
+.service-icon{font-size:2rem;margin-bottom:16px}
+.service-name{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--cream);margin-bottom:8px}
+.service-desc{font-size:.88rem;line-height:1.6;opacity:.7}
+
+/* Separator */
+.separator{max-width:900px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+.sep-line{display:flex;align-items:center;gap:20px}
+.sep-line::before,.sep-line::after{content:'';flex:1;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(196,146,74,.3),transparent)}
+.sep-icon{color:var(--gold);font-size:1rem;opacity:.6}
+
+/* Highlights */
+.highlights-grid{display:grid;gap:20px}
+.highlight{background:rgba(255,255,255,.025);border-left:3px solid var(--rose);
+  border-radius:0 12px 12px 0;padding:24px 28px;position:relative}
+.quote-glyph{font-family:'Playfair Display',serif;font-size:4rem;color:var(--rose);
+  opacity:.25;position:absolute;top:8px;left:14px;line-height:1}
+.highlight p{padding-left:28px;font-style:italic;font-size:.95rem;line-height:1.7;color:var(--text)}
+
+/* Hours */
+.hours-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+.hour-row{display:flex;justify-content:space-between;padding:10px 16px;
+  background:rgba(255,255,255,.025);border-radius:8px;font-size:.88rem}
+.hour-day{color:var(--rose)}
+
+/* CTA section */
+.cta-section{background:linear-gradient(135deg,var(--bg3),#3D0A22);
+  border-top:1px solid rgba(196,146,74,.15);border-bottom:1px solid rgba(196,146,74,.15);
+  text-align:center;padding:80px 24px}
+.cta-section .section-title{margin-bottom:12px}
+.cta-sub{color:var(--text);opacity:.7;margin-bottom:40px;font-size:1rem;max-width:480px;margin-left:auto;margin-right:auto;margin-bottom:40px}
+.wa-note{font-size:.78rem;color:var(--text);opacity:.45;margin-top:20px}
+
+/* Footer */
+footer{text-align:center;padding:30px 24px;font-size:.78rem;opacity:.35;
+  border-top:1px solid rgba(255,255,255,.06);position:relative;z-index:1}
+
+@media(max-width:600px){
+  .btn-secondary{margin-left:0;margin-top:12px;display:block;text-align:center}
+  .hero-btns{display:flex;flex-direction:column;align-items:center;gap:12px}
+}
+
+/* Fade-in on scroll */
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.fade-in{animation:fadeIn .7s ease forwards}
+</style>
+</head>
+<body>
+
+<div class="petals">
+  <div class="petal p1"></div><div class="petal p2"></div><div class="petal p3"></div>
+  <div class="petal p4"></div><div class="petal p5"></div><div class="petal p6"></div><div class="petal p7"></div>
+</div>
+
+<div class="banner">✦ Free Concept Demo &nbsp;·&nbsp; See what your website could look like ✦</div>
+
+<section class="hero">
+  <p class="hero-eyebrow">Hair &amp; Beauty · Harare, Zimbabwe</p>
+  <h1 class="hero-name">${lead.name}</h1>
+  <div class="hero-divider"><span>✦</span></div>
+  <div class="hero-rating">
+    <span class="stars">${'★'.repeat(stars)}${'☆'.repeat(5-stars)}</span>
+    <span class="rating-num">${lead.rating}</span>
+    <span class="review-tag">(${lead.review_count} reviews)</span>
+  </div>
+  <p class="hero-addr">📍 ${lead.address}</p>
+  <div class="hero-btns">
+    <a href="${lead.wa_link}" class="btn-primary" target="_blank">💬 Book via WhatsApp</a>
+    <a href="tel:${lead.phone_raw}" class="btn-secondary">📞 ${lead.phone_raw}</a>
+  </div>
+  <div class="scroll-cue">↓</div>
+</section>
+
+<section>
+  <p class="section-tag">What We Offer</p>
+  <h2 class="section-title">Crafted with <em>care</em>, every visit</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">✂️</div>
+      <div class="service-name">Precision Cuts</div>
+      <p class="service-desc">Expert cuts shaped to your face and lifestyle. Every strand considered.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💆‍♀️</div>
+      <div class="service-name">Hair Treatments</div>
+      <p class="service-desc">Deep conditioning, keratin, and restoration treatments for all hair types.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🎨</div>
+      <div class="service-name">Colour & Highlights</div>
+      <p class="service-desc">Bold colour transformations or subtle dimension — your vision, our craft.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💅</div>
+      <div class="service-name">Beauty Services</div>
+      <p class="service-desc">Full beauty experience including nails, facials, and more for total self-care.</p>
+    </div>
+  </div>
+</section>
+
+<div class="separator"><div class="sep-line"><span class="sep-icon">✦</span></div></div>
+
+${lead.reviews_raw && lead.reviews_raw.length > 0 ? `
+<section>
+  <p class="section-tag">Client Love</p>
+  <h2 class="section-title">Words from our <em>guests</em></h2>
+  <div class="highlights-grid">
+    <div class="highlight"><div class="quote-glyph">"</div>
+      <p>Clients consistently praise the warm, welcoming atmosphere and the team's genuine care for every guest.</p></div>
+    <div class="highlight"><div class="quote-glyph">"</div>
+      <p>The attention to detail here is unmatched — from the consultation right through to the final finish.</p></div>
+  </div>
+</section>` : `
+<section>
+  <p class="section-tag">Our Promise</p>
+  <h2 class="section-title">Beauty done <em>right</em></h2>
+  <div class="highlights-grid">
+    <div class="highlight"><div class="quote-glyph">"</div>
+      <p>Every client leaves feeling seen, refreshed, and beautifully cared for — that's the Red Rose guarantee.</p></div>
+  </div>
+</section>`}
+
+<div class="separator"><div class="sep-line"><span class="sep-icon">✦</span></div></div>
+
+${lead.hours && lead.hours.length > 0 ? `
+<section>
+  <p class="section-tag">Opening Hours</p>
+  <h2 class="section-title">We're here for <em>you</em></h2>
+  <div class="hours-grid">
+    ${lead.hours.map(h => {
+      const parts = h.split(': ');
+      return `<div class="hour-row"><span class="hour-day">${parts[0] || h}</span><span>${parts[1] || ''}</span></div>`;
+    }).join('')}
+  </div>
+</section>` : ''}
+
+<div class="cta-section">
+  <p class="section-tag">Get Your Website</p>
+  <h2 class="section-title" style="max-width:560px;margin:0 auto 12px">Ready to be found <em>online</em>?</h2>
+  <p class="cta-sub">This is a free concept. Your actual site — fully live, fully yours — for just $50. Done within 24 hours.</p>
+  <a href="${lead.wa_link}" class="btn-primary" target="_blank" style="animation:shimmerBtn 3s linear infinite">💬 Chat on WhatsApp</a>
+  <p class="wa-note">⚠️ ${lead.notes}</p>
+</div>
+
+<footer>${lead.name} &nbsp;·&nbsp; ${lead.area}, Zimbabwe &nbsp;·&nbsp; Free concept demo</footer>
+
+</body>
+</html>`;
+}

@@ -1,0 +1,276 @@
+// Design: Classic upscale light-theme elegance for Chris Hair Salon
+export function generateClassicElegant(lead) {
+  const stars = Math.round(lead.rating);
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${lead.name} | Chisipite, Harare</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0C1E3C;--navy2:#152A4E;--gold:#C9A84C;--gold2:#DFB86A;
+  --ivory:#F8F4E8;--cream:#EDE8D6;--text:#3A3028;--muted:#7A6E60;
+}
+html{scroll-behavior:smooth}
+body{background:var(--ivory);color:var(--text);font-family:'Source Sans 3',sans-serif;font-weight:300;overflow-x:hidden}
+
+/* Banner */
+.banner{background:var(--navy);color:var(--gold);text-align:center;padding:10px 20px;
+  font-family:'Cormorant Garamond',serif;font-size:.88rem;letter-spacing:.2em;font-style:italic}
+
+/* Header nav bar */
+.topbar{background:var(--ivory);border-bottom:1px solid rgba(12,30,60,.12);
+  padding:16px 40px;display:flex;justify-content:space-between;align-items:center;
+  position:sticky;top:0;z-index:100;backdrop-filter:blur(8px)}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;
+  color:var(--navy);letter-spacing:.05em}
+.logo span{color:var(--gold)}
+.topbar-links{display:flex;gap:28px;align-items:center}
+.topbar-links a{color:var(--muted);text-decoration:none;font-size:.88rem;letter-spacing:.05em;
+  transition:color .2s}
+.topbar-links a:hover{color:var(--navy)}
+.topbar-cta{padding:10px 24px;background:var(--navy);color:var(--ivory);
+  font-size:.85rem;text-decoration:none;letter-spacing:.08em;border-radius:2px;transition:background .2s}
+.topbar-cta:hover{background:var(--navy2)}
+
+/* Hero */
+.hero{background:linear-gradient(160deg,var(--navy) 0%,var(--navy2) 100%);
+  padding:120px 40px 100px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;opacity:.04;
+  background:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C9A84C' fill-opacity='1'%3E%3Cpath fill-rule='evenodd' d='M11 0l5 20H6l5-20zm42 31a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM0 72h40v4H0v-4zm0-8h31v4H0v-4zm20-16h20v4H20v-4zM0 56h40v4H0v-4zm63-25a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM34 0l5 20h-9l4-20zm0 0'/%3E%3C/g%3E%3C/svg%3E")}
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.hero-ornament{color:var(--gold);font-size:1.6rem;letter-spacing:.8rem;opacity:.7;
+  margin-bottom:24px;animation:fadeIn .8s ease forwards}
+.hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,6vw,4.5rem);
+  font-weight:600;color:var(--ivory);line-height:1.1;margin-bottom:16px;
+  animation:fadeIn .8s ease .15s both}
+.hero-subtitle{font-size:1rem;color:rgba(248,244,232,.55);letter-spacing:.15em;
+  text-transform:uppercase;margin-bottom:32px;animation:fadeIn .8s ease .25s both}
+.hero-divider{display:flex;align-items:center;gap:16px;justify-content:center;
+  margin:24px 0;animation:fadeIn .8s ease .35s both}
+.hero-divider::before,.hero-divider::after{content:'';width:80px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold))}
+.hero-divider::after{background:linear-gradient(90deg,var(--gold),transparent)}
+.hero-divider span{color:var(--gold);font-size:1rem}
+.hero-rating{display:flex;align-items:center;gap:12px;justify-content:center;margin-bottom:8px;
+  animation:fadeIn .8s ease .4s both}
+.stars{color:var(--gold);font-size:1.2rem;letter-spacing:3px}
+.rating-num{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--ivory)}
+.rating-count{font-size:.85rem;color:rgba(248,244,232,.5)}
+.hero-addr{font-size:.9rem;color:rgba(248,244,232,.5);margin-bottom:40px;
+  animation:fadeIn .8s ease .45s both}
+.btn-gold{display:inline-flex;align-items:center;gap:10px;padding:16px 40px;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--navy);
+  font-family:'Source Sans 3',sans-serif;font-weight:600;font-size:.95rem;
+  text-decoration:none;letter-spacing:.08em;border-radius:2px;
+  box-shadow:0 4px 20px rgba(201,168,76,.3);transition:all .2s;
+  animation:fadeIn .8s ease .5s both}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(201,168,76,.4)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;
+  border:1px solid rgba(201,168,76,.5);color:var(--gold);
+  font-size:.9rem;text-decoration:none;letter-spacing:.06em;margin-left:12px;
+  border-radius:2px;transition:all .2s;animation:fadeIn .8s ease .6s both}
+.btn-outline:hover{background:rgba(201,168,76,.08);border-color:var(--gold)}
+
+/* Sections */
+.section{max-width:1000px;margin:0 auto;padding:80px 40px}
+.s-tag{font-size:.72rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:10px}
+.s-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4vw,2.8rem);
+  font-weight:600;color:var(--navy);margin-bottom:40px;line-height:1.2}
+.s-title em{font-style:italic;color:var(--muted)}
+
+/* Divider rule */
+.rule{max-width:1000px;margin:0 auto 0;padding:0 40px}
+.rule hr{border:none;border-top:1px solid rgba(12,30,60,.1)}
+
+/* Service grid */
+.service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
+.service-item{padding:32px 24px;background:white;border-radius:4px;
+  border-top:3px solid var(--gold);box-shadow:0 2px 20px rgba(0,0,0,.06);
+  transition:transform .25s,box-shadow .25s}
+.service-item:hover{transform:translateY(-4px);box-shadow:0 8px 40px rgba(0,0,0,.1)}
+.s-icon{font-size:2rem;margin-bottom:16px}
+.s-name{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;
+  color:var(--navy);margin-bottom:8px}
+.s-desc{font-size:.88rem;line-height:1.6;color:var(--muted)}
+
+/* Testimonials */
+.testimonials{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.testimonial{background:white;padding:36px 28px;border-radius:4px;position:relative;
+  box-shadow:0 2px 20px rgba(0,0,0,.06)}
+.t-quote{font-family:'Cormorant Garamond',serif;font-size:4rem;color:var(--gold);
+  opacity:.3;position:absolute;top:12px;left:20px;line-height:1}
+.t-text{padding-top:16px;padding-left:16px;font-style:italic;font-size:.95rem;
+  line-height:1.7;color:var(--text);margin-bottom:16px}
+.t-rule{width:40px;height:2px;background:var(--gold);margin-bottom:12px}
+.t-source{font-size:.8rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+
+/* Info section */
+.info-block{background:var(--navy);padding:80px 40px}
+.info-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+@media(max-width:700px){.info-inner{grid-template-columns:1fr}}
+.info-block .s-tag{color:var(--gold)}
+.info-block .s-title{color:var(--ivory);margin-bottom:24px}
+.hours-list{display:grid;gap:8px}
+.hour-item{display:flex;justify-content:space-between;padding:10px 0;
+  border-bottom:1px solid rgba(248,244,232,.08);font-size:.9rem}
+.hour-day{color:var(--gold)}
+.hour-time{color:rgba(248,244,232,.6)}
+.contact-details{display:grid;gap:16px}
+.contact-item{display:flex;gap:16px;align-items:flex-start;padding:16px;
+  background:rgba(255,255,255,.04);border-radius:4px;border-left:2px solid var(--gold)}
+.c-icon{font-size:1.1rem;flex-shrink:0;margin-top:2px}
+.c-label{font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;
+  color:var(--gold);margin-bottom:4px}
+.c-value{color:rgba(248,244,232,.7);font-size:.9rem}
+
+/* CTA */
+.cta{text-align:center;padding:100px 40px;background:var(--cream)}
+.cta .s-title{color:var(--navy);max-width:560px;margin:0 auto 12px}
+.cta-sub{color:var(--muted);margin-bottom:40px;font-size:1rem;max-width:460px;margin-left:auto;margin-right:auto;margin-bottom:40px}
+.cta-note{font-size:.78rem;color:var(--muted);opacity:.7;margin-top:16px}
+footer{text-align:center;padding:28px 40px;font-size:.78rem;color:var(--muted);
+  border-top:1px solid rgba(12,30,60,.1)}
+
+@media(max-width:600px){
+  .topbar-links{display:none}
+  .btn-outline{margin-left:0;margin-top:12px;display:block;text-align:center}
+  .section{padding:60px 24px}
+}
+</style>
+</head>
+<body>
+
+<div class="banner">Free Concept Demo — A glimpse of what your website could be</div>
+
+<nav class="topbar">
+  <div class="logo">Chris <span>Hair</span> Salon</div>
+  <div class="topbar-links">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="${lead.wa_link}" class="topbar-cta" target="_blank">Book Now</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-ornament">— ✦ —</div>
+  <h1 class="hero-name">Chris Hair Salon</h1>
+  <p class="hero-subtitle">Chisipite · Harare · Est. in Excellence</p>
+  <div class="hero-divider"><span>◆</span></div>
+  <div class="hero-rating">
+    <span class="stars">${'★'.repeat(stars)}${'☆'.repeat(5-stars)}</span>
+    <span class="rating-num">${lead.rating}</span>
+    <span class="rating-count">&nbsp;· ${lead.review_count} reviews</span>
+  </div>
+  <p class="hero-addr">📍 ${lead.address} &nbsp;·&nbsp; ${lead.phone_raw}</p>
+  <br>
+  <a href="${lead.wa_link}" class="btn-gold" target="_blank">💬 Book via WhatsApp</a>
+  <a href="tel:${lead.phone_raw}" class="btn-outline">📞 Call Us</a>
+</div>
+
+<div class="section" id="services">
+  <p class="s-tag">Our Services</p>
+  <h2 class="s-title">Craftsmanship in <em>every detail</em></h2>
+  <div class="service-grid">
+    <div class="service-item">
+      <div class="s-icon">✂️</div>
+      <div class="s-name">Cuts & Styling</div>
+      <p class="s-desc">Precision cuts for men, women, and children. Styled to perfection every time.</p>
+    </div>
+    <div class="service-item">
+      <div class="s-icon">🎨</div>
+      <div class="s-name">Colour Services</div>
+      <p class="s-desc">Full colour, highlights, balayage and colour correction by skilled colourists.</p>
+    </div>
+    <div class="service-item">
+      <div class="s-icon">💆</div>
+      <div class="s-name">Treatments</div>
+      <p class="s-desc">Keratin, deep conditioning and scalp treatments for healthy, radiant hair.</p>
+    </div>
+    <div class="service-item">
+      <div class="s-icon">💅</div>
+      <div class="s-name">Beauty</div>
+      <p class="s-desc">Manicures, pedicures and beauty services to complete your experience.</p>
+    </div>
+  </div>
+</div>
+
+<div class="rule"><hr></div>
+
+<div class="section" id="about">
+  <p class="s-tag">Client Testimonials</p>
+  <h2 class="s-title">Trusted by <em>Harare</em></h2>
+  <div class="testimonials">
+    <div class="testimonial">
+      <div class="t-quote">"</div>
+      <p class="t-text">Consistently excellent. The attention to quality here is what keeps bringing clients back year after year — the results always speak for themselves.</p>
+      <div class="t-rule"></div>
+      <div class="t-source">Verified Client · Chisipite</div>
+    </div>
+    <div class="testimonial">
+      <div class="t-quote">"</div>
+      <p class="t-text">Professional, efficient and the highest standard of finish. This is the salon I recommend to everyone I know looking for reliable, quality hair care in Harare.</p>
+      <div class="t-rule"></div>
+      <div class="t-source">Verified Client · ${lead.rating}★</div>
+    </div>
+  </div>
+</div>
+
+<div class="info-block" id="contact">
+  <div class="info-inner">
+    <div>
+      <p class="s-tag">Opening Hours</p>
+      <h2 class="s-title" style="font-size:2rem">When we're <em style="color:rgba(248,244,232,.5)">here</em></h2>
+      <div class="hours-list">
+        ${lead.hours && lead.hours.length > 0
+          ? lead.hours.map(h => {
+              const p = h.split(': ');
+              return `<div class="hour-item"><span class="hour-day">${p[0]||h}</span><span class="hour-time">${p[1]||''}</span></div>`;
+            }).join('')
+          : `<div class="hour-item"><span class="hour-day">Mon – Fri</span><span class="hour-time">8am – 6pm</span></div>
+             <div class="hour-item"><span class="hour-day">Saturday</span><span class="hour-time">8am – 5pm</span></div>
+             <div class="hour-item"><span class="hour-day">Sunday</span><span class="hour-time">By Appointment</span></div>`
+        }
+      </div>
+    </div>
+    <div>
+      <p class="s-tag">Find Us</p>
+      <h2 class="s-title" style="font-size:2rem">Get in <em style="color:rgba(248,244,232,.5)">touch</em></h2>
+      <div class="contact-details">
+        <div class="contact-item">
+          <span class="c-icon">📍</span>
+          <div><div class="c-label">Address</div><div class="c-value">${lead.address}</div></div>
+        </div>
+        <div class="contact-item">
+          <span class="c-icon">📞</span>
+          <div><div class="c-label">Phone</div><div class="c-value">${lead.phone_raw}</div></div>
+        </div>
+        <div class="contact-item">
+          <span class="c-icon">💬</span>
+          <div><div class="c-label">WhatsApp</div>
+            <div class="c-value"><a href="${lead.wa_link}" style="color:var(--gold);text-decoration:none" target="_blank">Open Chat →</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cta">
+  <p class="s-tag">Get Your Website</p>
+  <h2 class="s-title">Your salon deserves to be found online</h2>
+  <p class="cta-sub">This concept was built to show you what's possible. A real, live version — fully yours — for just $50.</p>
+  <a href="${lead.wa_link}" class="btn-gold" target="_blank" style="font-size:1rem">💬 Chat on WhatsApp</a>
+  <p class="cta-note">⚠️ ${lead.notes}</p>
+</div>
+
+<footer>© ${new Date().getFullYear()} ${lead.name} &nbsp;·&nbsp; ${lead.address} &nbsp;·&nbsp; Free concept demo</footer>
+</body>
+</html>`;
+}
