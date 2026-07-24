@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Warthog Guest Lodge | Stay With Freshness — Waterfalls, Harare</title>
+<meta name="description" content="Warthog Guest Lodge — quiet, secure short & long stay BnB in Waterfalls, Harare. Luxury, Deluxe & Standard en-suite rooms from $30/night. Free WiFi, solar backup, hot water.">
+<style>
+  :root{
+    --green-deep:#0e2b1f;
+    --green:#16412e;
+    --gold:#c9a24b;
+    --cream:#f7f3ea;
+    --red:#c0392b;
+    --yellow:#f1c40f;
+    --ink:#1c1c1c;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Segoe UI',Helvetica,Arial,sans-serif;color:var(--ink);background:var(--cream);line-height:1.6}
+  img{max-width:100%;display:block}
+  a{text-decoration:none;color:inherit}
+  .container{max-width:1100px;margin:0 auto;padding:0 20px}
+
+  /* Nav */
+  header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(14,43,31,0.95);backdrop-filter:blur(6px);transition:.3s}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;max-width:1100px;margin:0 auto}
+  .brand{display:flex;align-items:center;gap:10px;color:var(--cream);font-weight:700;font-size:1.15rem;letter-spacing:.5px}
+  .brand span{color:var(--gold)}
+  .navlinks{display:flex;gap:24px}
+  .navlinks a{color:var(--cream);font-size:.95rem;opacity:.9;transition:.2s}
+  .navlinks a:hover{opacity:1;color:var(--gold)}
+  .nav-cta{background:var(--gold);color:var(--green-deep)!important;padding:9px 18px;border-radius:30px;font-weight:600;font-size:.9rem!important}
+  .menu-toggle{display:none;background:none;border:none;color:var(--cream);font-size:1.6rem;cursor:pointer}
+
+  /* Hero */
+  .hero{
+    position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;
+    background:linear-gradient(rgba(10,30,21,.72),rgba(10,30,21,.82)),url('images/hero-flyer.jpg') center/cover no-repeat;
+    color:var(--cream);padding:120px 20px 60px;
+    animation:heroZoom 20s ease-in-out infinite alternate;
+  }
+  @keyframes heroZoom{from{background-size:100%}to{background-size:112%}}
+  .hero-inner{max-width:720px;animation:fadeUp 1s ease both}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+  .hero .eyebrow{color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-size:.8rem;font-weight:700;margin-bottom:14px}
+  .hero h1{font-size:clamp(2.2rem,5.5vw,3.6rem);font-weight:800;margin-bottom:14px;text-shadow:0 2px 20px rgba(0,0,0,.4)}
+  .hero h1 em{color:var(--gold);font-style:normal}
+  .hero p{font-size:1.15rem;opacity:.92;margin-bottom:34px}
+  .btn-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  .btn{padding:15px 30px;border-radius:40px;font-weight:700;font-size:1rem;display:inline-flex;align-items:center;gap:10px;transition:.25s;border:2px solid transparent}
+  .btn-primary{background:var(--gold);color:var(--green-deep)}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 24px rgba(201,162,75,.35)}
+  .btn-outline{border-color:var(--cream);color:var(--cream)}
+  .btn-outline:hover{background:var(--cream);color:var(--green-deep);transform:translateY(-3px)}
+  .scroll-cue{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);color:var(--cream);opacity:.7;font-size:.8rem;animation:bounce 2s infinite}
+  @keyframes bounce{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+
+  section{padding:90px 0}
+  .section-head{text-align:center;max-width:640px;margin:0 auto 50px}
+  .eyebrow-dark{color:var(--red);text-transform:uppercase;letter-spacing:3px;font-size:.78rem;font-weight:700;margin-bottom:10px}
+  .section-head h2{font-size:clamp(1.8rem,4vw,2.5rem);color:var(--green-deep);font-weight:800}
+  .section-head p{color:#555;margin-top:14px;font-size:1.05rem}
+
+  .reveal{opacity:0;animation:fadeUp .8s ease forwards;animation-play-state:paused}
+  .reveal.in{animation-play-state:running}
+  @media (prefers-reduced-motion: reduce){.reveal{opacity:1;animation:none}}
+
+  /* About */
+  .about{background:var(--cream)}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+  .about-grid img{border-radius:14px;box-shadow:0 20px 40px rgba(0,0,0,.15)}
+  .about-text h2{color:var(--green-deep);font-size:2rem;font-weight:800;margin-bottom:18px}
+  .about-text p{color:#444;margin-bottom:14px}
+  .stat-row{display:flex;gap:30px;margin-top:26px}
+  .stat{text-align:left}
+  .stat b{display:block;font-size:1.8rem;color:var(--red);font-weight:800}
+  .stat span{font-size:.85rem;color:#666}
+
+  /* Rooms */
+  .rooms{background:var(--green-deep);color:var(--cream)}
+  .rooms .section-head h2{color:var(--cream)}
+  .rooms .section-head p{color:#cfe0d6}
+  .room-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
+  .room-card{background:var(--green);border-radius:16px;overflow:hidden;transition:.3s;border:1px solid rgba(201,162,75,.2)}
+  .room-card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,0,0,.35)}
+  .room-card .imgwrap{position:relative;height:200px;overflow:hidden}
+  .room-card .imgwrap img{width:100%;height:100%;object-fit:cover;transition:.5s}
+  .room-card:hover .imgwrap img{transform:scale(1.08)}
+  .price-tag{position:absolute;top:14px;right:14px;background:var(--red);color:#fff;padding:6px 14px;border-radius:20px;font-weight:700;font-size:.9rem}
+  .room-body{padding:22px}
+  .room-body h3{font-size:1.25rem;margin-bottom:10px;color:var(--gold)}
+  .room-body ul{list-style:none;margin-bottom:18px}
+  .room-body li{font-size:.92rem;color:#dce8e1;padding:4px 0;padding-left:22px;position:relative}
+  .room-body li::before{content:"✓";position:absolute;left:0;color:var(--gold);font-weight:700}
+  .room-btn{display:block;text-align:center;background:var(--gold);color:var(--green-deep);padding:12px;border-radius:8px;font-weight:700;font-size:.92rem;transition:.2s}
+  .room-btn:hover{background:#fff}
+
+  /* Amenities */
+  .amenities-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:24px}
+  .amenity{text-align:center;padding:30px 16px;background:#fff;border-radius:14px;box-shadow:0 6px 20px rgba(0,0,0,.06);transition:.3s}
+  .amenity:hover{transform:translateY(-6px);box-shadow:0 16px 30px rgba(0,0,0,.1)}
+  .amenity .icon{font-size:2.2rem;margin-bottom:12px}
+  .amenity h4{font-size:.98rem;color:var(--green-deep);font-weight:700}
+
+  /* Gallery */
+  .gallery{background:#fff}
+  .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+  .gallery-grid figure{border-radius:12px;overflow:hidden;position:relative;height:260px}
+  .gallery-grid img{width:100%;height:100%;object-fit:cover;transition:.5s}
+  .gallery-grid figure:hover img{transform:scale(1.1)}
+  .gallery-tag{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.75));color:#fff;padding:30px 14px 12px;font-weight:600;font-size:.9rem}
+
+  /* Location */
+  .location{background:var(--cream)}
+  .loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+  .loc-card{background:#fff;padding:30px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+  .loc-card h3{color:var(--green-deep);margin-bottom:16px}
+  .loc-item{display:flex;gap:12px;margin-bottom:14px;font-size:.95rem}
+  .loc-item b{color:var(--red)}
+  iframe{width:100%;height:340px;border:0;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+
+  /* Reviews */
+  .reviews{background:var(--green-deep);color:var(--cream);text-align:center}
+  .review-badge{display:inline-flex;align-items:center;gap:16px;background:var(--green);padding:22px 34px;border-radius:16px;margin-top:10px;flex-wrap:wrap;justify-content:center}
+  .review-badge .big{font-size:2.2rem;font-weight:800;color:var(--gold)}
+  .stars{color:var(--yellow);font-size:1.2rem;letter-spacing:2px}
+
+  /* Contact / Footer */
+  footer{background:#0a1f16;color:#cfe0d6;padding:70px 0 30px}
+  .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px}
+  .footer-grid h4{color:var(--gold);margin-bottom:16px;font-size:1.05rem}
+  .footer-grid p, .footer-grid a{font-size:.92rem;color:#b9ccc0;display:block;margin-bottom:10px}
+  .footer-grid a:hover{color:var(--gold)}
+  .foot-cta{background:var(--gold);color:var(--green-deep);padding:12px 24px;border-radius:30px;font-weight:700;display:inline-block;margin-top:8px}
+  .bottom-bar{border-top:1px solid rgba(255,255,255,.1);padding-top:22px;text-align:center;font-size:.82rem;color:#7f9488}
+
+  .whatsapp-float{position:fixed;bottom:24px;right:24px;background:#25D366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;box-shadow:0 8px 20px rgba(0,0,0,.3);z-index:99;animation:pulse 2.5s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 0 0 16px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+
+  @media(max-width:800px){
+    .navlinks{
+      display:flex;flex-direction:column;align-items:flex-start;gap:0;
+      position:absolute;top:100%;left:0;right:0;background:var(--green-deep);
+      max-height:0;overflow:hidden;transition:max-height .35s ease;padding:0 20px;
+    }
+    .navlinks.open{max-height:400px;padding:10px 20px 20px}
+    .navlinks a{padding:12px 0;width:100%;border-bottom:1px solid rgba(255,255,255,.08)}
+    .nav-cta{margin-top:10px;text-align:center}
+    .menu-toggle{display:block}
+    .about-grid,.loc-grid{grid-template-columns:1fr}
+    .footer-grid{grid-template-columns:1fr;gap:26px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="brand">🏠 Warthog <span>Guest Lodge</span></div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#rooms">Rooms</a>
+      <a href="#amenities">Amenities</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#location">Location</a>
+      <a href="#contact">Contact</a>
+      <a class="nav-cta" href="https://wa.me/263712878438?text=Hi%20Warthog%20Guest%20Lodge%2C%20I%27d%20like%20to%20enquire%20about%20a%20booking." target="_blank" rel="noopener">Book Now</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Waterfalls · Harare</div>
+    <h1>Warthog Guest Lodge<br><em>Stay With Freshness</em></h1>
+    <p>A quiet, secure short &amp; long stay BnB just 9km from Harare CBD — comfortable en-suite rooms, free WiFi and solar backup power, every night.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="https://wa.me/263712878438?text=Hi%20Warthog%20Guest%20Lodge%2C%20I%27d%20like%20to%20enquire%20about%20a%20booking." target="_blank" rel="noopener">💬 Book on WhatsApp</a>
+      <a class="btn btn-outline" href="tel:+263712878438">📞 Call Now</a>
+    </div>
+  </div>
+  <div class="scroll-cue">↓ scroll to explore</div>
+</section>
+
+<section class="about" id="about">
+  <div class="container about-grid">
+    <img class="reveal" src="images/entrance.jpg" alt="Warthog Guest Lodge entrance, Powell Road, Parktown">
+    <div class="about-text reveal">
+      <div class="eyebrow-dark">About Us</div>
+      <h2>A fresh, secure stay in the heart of Waterfalls</h2>
+      <p>Warthog Guest Lodge offers short and long stay accommodation in a quiet, secure residential setting in Parktown, Waterfalls — close enough to the city and airport for convenience, far enough for a peaceful night's rest.</p>
+      <p>Every room comes with clean en-suite bathrooms, hot water, and the comforts of home — backed by solar power so you're never left without light or WiFi.</p>
+      <div class="stat-row">
+        <div class="stat"><b>5.5K+</b><span>Facebook followers</span></div>
+        <div class="stat"><b>100%</b><span>Guest recommend rate</span></div>
+        <div class="stat"><b>9km</b><span>To Harare CBD</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="rooms" id="rooms">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow-dark" style="color:var(--gold)">Rooms &amp; Rates</div>
+      <h2>Choose your comfort</h2>
+      <p>Three room tiers, all en-suite, all freshly kept.</p>
+    </div>
+    <div class="room-grid">
+      <div class="room-card reveal">
+        <div class="imgwrap"><span class="price-tag">$40/night</span><img src="images/rooms-flyer.jpg" alt="Luxury En-suite Room"></div>
+        <div class="room-body">
+          <h3>Luxury En-suite</h3>
+          <ul>
+            <li>Spacious room with lounge seating</li>
+            <li>Premium bedding &amp; decor</li>
+            <li>Free WiFi &amp; satellite TV</li>
+          </ul>
+          <a class="room-btn" href="https://wa.me/263712878438?text=Hi%2C%20I%27d%20like%20to%20book%20the%20Luxury%20En-suite%20room." target="_blank" rel="noopener">Book This Room</a>
+        </div>
+      </div>
+      <div class="room-card reveal">
+        <div class="imgwrap"><span class="price-tag">$35/night</span><img src="images/rooms-detail.jpg" alt="Deluxe En-suite Room"></div>
+        <div class="room-body">
+          <h3>Deluxe En-suite</h3>
+          <ul>
+            <li>Comfortable double bed</li>
+            <li>Hot water en-suite bathroom</li>
+            <li>Secure parking on site</li>
+          </ul>
+          <a class="room-btn" href="https://wa.me/263712878438?text=Hi%2C%20I%27d%20like%20to%20book%20the%20Deluxe%20En-suite%20room." target="_blank" rel="noopener">Book This Room</a>
+        </div>
+      </div>
+      <div class="room-card reveal">
+        <div class="imgwrap"><span class="price-tag">$30/night</span><img src="images/hero-flyer.jpg" alt="Standard Room"></div>
+        <div class="room-body">
+          <h3>Standard Room</h3>
+          <ul>
+            <li>Clean, cosy essentials</li>
+            <li>Borehole water supply</li>
+            <li>Quiet, secure environment</li>
+          </ul>
+          <a class="room-btn" href="https://wa.me/263712878438?text=Hi%2C%20I%27d%20like%20to%20book%20the%20Standard%20room." target="_blank" rel="noopener">Book This Room</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="amenities" id="amenities">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow-dark">Amenities</div>
+      <h2>Everything you need, taken care of</h2>
+    </div>
+    <div class="amenities-grid">
+      <div class="amenity reveal"><div class="icon">📶</div><h4>Free WiFi</h4></div>
+      <div class="amenity reveal"><div class="icon">☀️</div><h4>Solar Backup Power</h4></div>
+      <div class="amenity reveal"><div class="icon">🚿</div><h4>Hot Water En-suite</h4></div>
+      <div class="amenity reveal"><div class="icon">🔒</div><h4>Secure Parking</h4></div>
+      <div class="amenity reveal"><div class="icon">📺</div><h4>TV + Satellite</h4></div>
+      <div class="amenity reveal"><div class="icon">💧</div><h4>Borehole Water</h4></div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow-dark">Gallery</div>
+      <h2>A glimpse inside Warthog Guest Lodge</h2>
+    </div>
+    <div class="gallery-grid">
+      <figure class="reveal"><img src="images/entrance.jpg" alt="Lodge entrance and stone wall signage"><figcaption class="gallery-tag">Entrance · 1250 Powell Road</figcaption></figure>
+      <figure class="reveal"><img src="images/hero-flyer.jpg" alt="Lodge exterior and room preview"><figcaption class="gallery-tag">Exterior &amp; Grounds</figcaption></figure>
+      <figure class="reveal"><img src="images/rooms-flyer.jpg" alt="Room tiers overview"><figcaption class="gallery-tag">Room Tiers</figcaption></figure>
+      <figure class="reveal"><img src="images/rooms-detail.jpg" alt="Room interior detail"><figcaption class="gallery-tag">Room Comfort</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="location" id="location">
+  <div class="container loc-grid">
+    <div class="loc-card reveal">
+      <h3>Find Us</h3>
+      <div class="loc-item"><b>📍</b><span>1250 Powell Road, Parktown, Waterfalls, Harare, Zimbabwe</span></div>
+      <div class="loc-item"><b>✈️</b><span>10km from Harare International Airport</span></div>
+      <div class="loc-item"><b>🏙️</b><span>9km to Harare CBD</span></div>
+      <div class="loc-item"><b>🛍️</b><span>Within reach of local shopping centres</span></div>
+      <a class="btn btn-primary" style="margin-top:16px" href="https://wa.me/263712878438" target="_blank" rel="noopener">Get Directions via WhatsApp</a>
+    </div>
+    <iframe class="reveal" loading="lazy" src="https://www.google.com/maps?q=1250+Powell+Road,+Parktown,+Waterfalls,+Harare,+Zimbabwe&output=embed" allowfullscreen></iframe>
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="container">
+    <div class="eyebrow-dark" style="color:var(--gold)">Guest Feedback</div>
+    <h2 style="font-size:2rem;font-weight:800;margin-bottom:6px">Loved by our guests</h2>
+    <div class="review-badge">
+      <div class="stars">★★★★★</div>
+      <div class="big">100%</div>
+      <div style="text-align:left">recommend Warthog<br>Guest Lodge on Facebook (9 reviews)</div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="container footer-grid">
+    <div>
+      <h4>Warthog Guest Lodge</h4>
+      <p>1250 Powell Road, Parktown, Waterfalls, Harare, Zimbabwe</p>
+      <p>Short &amp; long stay BnB — quiet, secure, and fresh.</p>
+      <a class="foot-cta" href="https://wa.me/263712878438?text=Hi%20Warthog%20Guest%20Lodge%2C%20I%27d%20like%20to%20enquire%20about%20a%20booking." target="_blank" rel="noopener">💬 Chat on WhatsApp</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="tel:+263712878438">📞 0712 878 438</a>
+      <a href="tel:+263783136606">📞 0783 136 606</a>
+      <a href="tel:+263242662575">📞 0242 662 575</a>
+      <a href="mailto:admin@warthogguestlodge.co.zw">✉️ admin@warthogguestlodge.co.zw</a>
+    </div>
+    <div>
+      <h4>Follow Us</h4>
+      <a href="https://www.facebook.com/warthogguestlodge/" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://instagram.com/warthogguestlodge" target="_blank" rel="noopener">Instagram @warthogguestlodge</a>
+    </div>
+  </div>
+  <div class="bottom-bar container">
+    © 2026 Warthog Guest Lodge. Site sample by Phillip — Web Design.
+  </div>
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/263712878438?text=Hi%20Warthog%20Guest%20Lodge%2C%20I%27d%20like%20to%20enquire%20about%20a%20booking." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  // Fallback: guarantee visibility even if the observer misses an element
+  // (e.g. full-page screenshot tools that render the whole page at once)
+  window.addEventListener('load', ()=>{
+    setTimeout(()=>document.querySelectorAll('.reveal:not(.in)').forEach(el=>el.classList.add('in')), 600);
+  });
+
+  const menuToggle = document.getElementById('menuToggle');
+  const navlinks = document.querySelector('.navlinks');
+  menuToggle.addEventListener('click', ()=> navlinks.classList.toggle('open'));
+  navlinks.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>navlinks.classList.remove('open')));
+
+  const header = document.querySelector('header');
+  window.addEventListener('scroll', ()=>{
+    header.style.boxShadow = window.scrollY > 30 ? '0 4px 20px rgba(0,0,0,.25)' : 'none';
+  });
+</script>
+
+</body>
+</html>
