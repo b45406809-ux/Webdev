@@ -40,11 +40,12 @@
   }
   .hero-slides{position:absolute;inset:0;z-index:0}
   .hero-slide{
-    position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;
+    position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat;
+    opacity:0;transform:scale(1);
     transition:opacity 1.6s ease;animation:heroZoom 18s ease-in-out infinite alternate;
   }
   .hero-slide.active{opacity:1}
-  @keyframes heroZoom{from{background-size:100%}to{background-size:114%}}
+  @keyframes heroZoom{from{transform:scale(1)}to{transform:scale(1.12)}}
   .hero-overlay{
     position:absolute;inset:0;z-index:1;
     background:linear-gradient(rgba(10,30,21,.72),rgba(10,30,21,.82));
@@ -202,7 +203,7 @@
 
 <section class="about" id="about">
   <div class="container about-grid">
-    <img class="reveal" src="images/entrance.jpg" alt="Warthog Guest Lodge entrance, Powell Road, Parktown">
+    <img class="reveal" src="images/hero-flyer.jpg" alt="Warthog Guest Lodge exterior, Powell Road, Parktown">
     <div class="about-text reveal">
       <div class="eyebrow-dark">About Us</div>
       <h2>A fresh, secure stay in the heart of Waterfalls</h2>
@@ -289,8 +290,7 @@
       <h2>A glimpse inside Warthog Guest Lodge</h2>
     </div>
     <div class="gallery-grid">
-      <figure class="reveal"><img src="images/entrance.jpg" alt="Lodge entrance and stone wall signage"><figcaption class="gallery-tag">Entrance · 1250 Powell Road</figcaption></figure>
-      <figure class="reveal"><img src="images/hero-flyer.jpg" alt="Lodge exterior and room preview"><figcaption class="gallery-tag">Exterior &amp; Grounds</figcaption></figure>
+      <figure class="reveal"><img src="images/hero-flyer.jpg" alt="Lodge exterior, entrance and room preview"><figcaption class="gallery-tag">Exterior &amp; Grounds</figcaption></figure>
       <figure class="reveal"><img src="images/rooms-flyer.jpg" alt="Room tiers overview"><figcaption class="gallery-tag">Room Tiers</figcaption></figure>
       <figure class="reveal"><img src="images/rooms-detail.jpg" alt="Room interior detail"><figcaption class="gallery-tag">Room Comfort</figcaption></figure>
     </div>
@@ -363,11 +363,13 @@
   });
 
   // Hero slideshow — order: logo, entrance sign, flyer, room (bed close-up), room (wide).
-  // Add the two pending room photo filenames here once uploaded to images/.
+  // 'entrance.jpg' was mislabeled (it's actually a bridal photo, not lodge signage) — removed
+  // until the real stone-wall entrance-sign photo is supplied as a file.
+  // Add the entrance sign + two pending room photo filenames here once uploaded to images/.
   const heroImages = [
     'images/logo.jpg',
-    'images/entrance.jpg',
     'images/hero-flyer.jpg',
+    // 'images/entrance-sign.jpg',
     // 'images/room-balloons-bed.jpg',
     // 'images/room-balloons-wide.jpg',
   ];
