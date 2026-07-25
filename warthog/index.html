@@ -38,6 +38,9 @@
     position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;
     color:var(--cream);padding:120px 20px 60px;overflow:hidden;
   }
+  @media(min-width:801px){
+    .hero{min-height:62vh;padding:150px 20px 70px}
+  }
   .hero-slides{position:absolute;inset:0;z-index:0}
   .hero-slide{
     position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat;
@@ -203,7 +206,7 @@
 
 <section class="about" id="about">
   <div class="container about-grid">
-    <img class="reveal" src="images/hero-flyer.jpg" alt="Warthog Guest Lodge exterior, Powell Road, Parktown">
+    <img class="reveal" src="images/entrance.jpg" alt="Warthog Guest Lodge entrance, Powell Road, Parktown">
     <div class="about-text reveal">
       <div class="eyebrow-dark">About Us</div>
       <h2>A fresh, secure stay in the heart of Waterfalls</h2>
@@ -227,7 +230,7 @@
     </div>
     <div class="room-grid">
       <div class="room-card reveal">
-        <div class="imgwrap"><span class="price-tag">$40/night</span><img src="images/rooms-flyer.jpg" alt="Luxury En-suite Room"></div>
+        <div class="imgwrap"><span class="price-tag">$40/night</span><img src="images/room-bed.jpg" alt="Luxury En-suite Room"></div>
         <div class="room-body">
           <h3>Luxury En-suite</h3>
           <ul>
@@ -239,7 +242,7 @@
         </div>
       </div>
       <div class="room-card reveal">
-        <div class="imgwrap"><span class="price-tag">$35/night</span><img src="images/rooms-detail.jpg" alt="Deluxe En-suite Room"></div>
+        <div class="imgwrap"><span class="price-tag">$35/night</span><img src="images/room-wide.jpg" alt="Deluxe En-suite Room"></div>
         <div class="room-body">
           <h3>Deluxe En-suite</h3>
           <ul>
@@ -290,9 +293,10 @@
       <h2>A glimpse inside Warthog Guest Lodge</h2>
     </div>
     <div class="gallery-grid">
-      <figure class="reveal"><img src="images/hero-flyer.jpg" alt="Lodge exterior, entrance and room preview"><figcaption class="gallery-tag">Exterior &amp; Grounds</figcaption></figure>
-      <figure class="reveal"><img src="images/rooms-flyer.jpg" alt="Room tiers overview"><figcaption class="gallery-tag">Room Tiers</figcaption></figure>
-      <figure class="reveal"><img src="images/rooms-detail.jpg" alt="Room interior detail"><figcaption class="gallery-tag">Room Comfort</figcaption></figure>
+      <figure class="reveal"><img src="images/entrance.jpg" alt="Lodge entrance and stone wall signage"><figcaption class="gallery-tag">Entrance · 1250 Powell Road</figcaption></figure>
+      <figure class="reveal"><img src="images/room-wide.jpg" alt="Guest room, wide view"><figcaption class="gallery-tag">Guest Room</figcaption></figure>
+      <figure class="reveal"><img src="images/room-bed.jpg" alt="Guest room bed detail"><figcaption class="gallery-tag">Room Comfort</figcaption></figure>
+      <figure class="reveal"><img src="images/hero-flyer.jpg" alt="Lodge promotional flyer"><figcaption class="gallery-tag">Warthog BnB</figcaption></figure>
     </div>
   </div>
 </section>
@@ -363,15 +367,12 @@
   });
 
   // Hero slideshow — order: logo, entrance sign, flyer, room (bed close-up), room (wide).
-  // 'entrance.jpg' was mislabeled (it's actually a bridal photo, not lodge signage) — removed
-  // until the real stone-wall entrance-sign photo is supplied as a file.
-  // Add the entrance sign + two pending room photo filenames here once uploaded to images/.
   const heroImages = [
     'images/logo.jpg',
+    'images/entrance.jpg',
     'images/hero-flyer.jpg',
-    // 'images/entrance-sign.jpg',
-    // 'images/room-balloons-bed.jpg',
-    // 'images/room-balloons-wide.jpg',
+    'images/room-bed.jpg',
+    'images/room-wide.jpg',
   ];
   const slidesEl = document.getElementById('heroSlides');
   heroImages.forEach((src, i)=>{
