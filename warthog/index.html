@@ -36,12 +36,20 @@
   /* Hero */
   .hero{
     position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;
-    background:linear-gradient(rgba(10,30,21,.72),rgba(10,30,21,.82)),url('images/hero-flyer.jpg') center/cover no-repeat;
-    color:var(--cream);padding:120px 20px 60px;
-    animation:heroZoom 20s ease-in-out infinite alternate;
+    color:var(--cream);padding:120px 20px 60px;overflow:hidden;
   }
-  @keyframes heroZoom{from{background-size:100%}to{background-size:112%}}
-  .hero-inner{max-width:720px;animation:fadeUp 1s ease both}
+  .hero-slides{position:absolute;inset:0;z-index:0}
+  .hero-slide{
+    position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;
+    transition:opacity 1.6s ease;animation:heroZoom 18s ease-in-out infinite alternate;
+  }
+  .hero-slide.active{opacity:1}
+  @keyframes heroZoom{from{background-size:100%}to{background-size:114%}}
+  .hero-overlay{
+    position:absolute;inset:0;z-index:1;
+    background:linear-gradient(rgba(10,30,21,.72),rgba(10,30,21,.82));
+  }
+  .hero-inner{position:relative;z-index:2;max-width:720px;animation:fadeUp 1s ease both}
   @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
   .hero .eyebrow{color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-size:.8rem;font-weight:700;margin-bottom:14px}
   .hero h1{font-size:clamp(2.2rem,5.5vw,3.6rem);font-weight:800;margin-bottom:14px;text-shadow:0 2px 20px rgba(0,0,0,.4)}
@@ -139,6 +147,12 @@
   @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 0 0 16px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
 
   @media(max-width:800px){
+    .hero-overlay{
+      background:linear-gradient(rgba(8,24,17,.88),rgba(8,24,17,.92));
+      backdrop-filter:blur(1px);
+    }
+    .hero h1{text-shadow:0 2px 14px rgba(0,0,0,.7)}
+    .hero p{text-shadow:0 1px 10px rgba(0,0,0,.6)}
     .navlinks{
       display:flex;flex-direction:column;align-items:flex-start;gap:0;
       position:absolute;top:100%;left:0;right:0;background:var(--green-deep);
@@ -172,6 +186,8 @@
 </header>
 
 <section class="hero">
+  <div class="hero-slides" id="heroSlides"></div>
+  <div class="hero-overlay"></div>
   <div class="hero-inner">
     <div class="eyebrow">Waterfalls · Harare</div>
     <h1>Warthog Guest Lodge<br><em>Stay With Freshness</em></h1>
@@ -345,6 +361,37 @@
   window.addEventListener('load', ()=>{
     setTimeout(()=>document.querySelectorAll('.reveal:not(.in)').forEach(el=>el.classList.add('in')), 600);
   });
+
+  // Hero slideshow — order: logo, entrance sign, flyer, room (bed close-up), room (wide).
+  // Add the two pending room photo filenames here once uploaded to images/.
+  const heroImages = [
+    'images/logo.jpg',
+    'images/entrance.jpg',
+    'images/hero-flyer.jpg',
+    // 'images/room-balloons-bed.jpg',
+    // 'images/room-balloons-wide.jpg',
+  ];
+  const slidesEl = document.getElementById('heroSlides');
+  heroImages.forEach((src, i)=>{
+    const div = document.createElement('div');
+    div.className = 'hero-slide' + (i===0 ? ' active' : '');
+    div.style.backgroundImage = `url('${src}')`;
+    if (src.includes('logo.jpg')){
+      div.style.backgroundColor = '#000';
+      div.style.backgroundSize = 'contain';
+      div.style.backgroundRepeat = 'no-repeat';
+    }
+    slidesEl.appendChild(div);
+  });
+  const slideEls = slidesEl.querySelectorAll('.hero-slide');
+  if (slideEls.length > 1){
+    let current = 0;
+    setInterval(()=>{
+      slideEls[current].classList.remove('active');
+      current = (current + 1) % slideEls.length;
+      slideEls[current].classList.add('active');
+    }, 4500);
+  }
 
   const menuToggle = document.getElementById('menuToggle');
   const navlinks = document.querySelector('.navlinks');
