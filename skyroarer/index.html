@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skyroarer Media | Professional Filming, Photography &amp; Drone Hire — Harare</title>
+<meta name="description" content="Skyroarer Media — professional video filming, photography and drone hire in Harare, Zimbabwe. Weddings, events, aerial coverage and custom printing. Quality is our only language.">
+<meta property="og:title" content="Skyroarer Media | Quality Is Our Only Language">
+<meta property="og:description" content="Professional filming, photography and drone hire in Harare, Zimbabwe.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230ea5e9'/><text y='.9em' x='50' text-anchor='middle' font-size='62'>📹</text></svg>">
+<style>
+  :root{
+    --ink:#0b0e13;
+    --ink-2:#121721;
+    --ink-3:#1a2130;
+    --sky:#38bdf8;
+    --sky-deep:#0ea5e9;
+    --amber:#f59e0b;
+    --paper:#f5f7fa;
+    --muted:#94a3b8;
+    --line:rgba(255,255,255,.09);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter','Segoe UI',Helvetica,Arial,sans-serif;
+    background:var(--ink);color:var(--paper);line-height:1.65;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  img{max-width:100%;display:block}
+  a{text-decoration:none;color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+
+  /* ---------- Nav ---------- */
+  header{
+    position:fixed;inset:0 0 auto 0;z-index:200;
+    transition:background .35s ease, box-shadow .35s ease, padding .35s ease;
+    padding:6px 0;
+  }
+  header.solid{background:rgba(11,14,19,.9);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line)}
+  nav{display:flex;align-items:center;justify-content:space-between;max-width:1180px;margin:0 auto;padding:14px 22px}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:1.1rem;letter-spacing:-.02em}
+  .brand-mark{
+    width:34px;height:34px;border-radius:9px;flex:none;display:grid;place-items:center;
+    background:linear-gradient(135deg,var(--sky),var(--sky-deep));color:#04141f;font-size:1rem;
+    box-shadow:0 4px 16px rgba(56,189,248,.35);
+  }
+  .brand span{color:var(--sky)}
+  .navlinks{display:flex;align-items:center;gap:6px}
+  .navlinks a{
+    font-size:.92rem;color:#cbd5e1;padding:9px 14px;border-radius:9px;transition:.2s;font-weight:500;
+  }
+  .navlinks a:hover{color:#fff;background:rgba(255,255,255,.06)}
+  .nav-cta{
+    background:var(--sky)!important;color:#04141f!important;font-weight:700!important;
+    padding:10px 20px!important;margin-left:8px;box-shadow:0 4px 18px rgba(56,189,248,.3);
+  }
+  .nav-cta:hover{background:#7dd3fc!important;transform:translateY(-1px)}
+  .burger{display:none;background:none;border:0;color:#fff;font-size:1.5rem;cursor:pointer;padding:6px}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;min-height:100vh;display:grid;place-items:center;text-align:center;
+    padding:150px 22px 90px;overflow:hidden;
+  }
+  .hero-bg{position:absolute;inset:0;z-index:0}
+  .hero-bg .shot{
+    position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat;
+    opacity:0;transform:scale(1.04);
+    transition:opacity 1.8s ease, transform 7s ease;
+  }
+  .hero-bg .shot.on{opacity:1;transform:scale(1.14)}
+  /* Scrim keeps text legible while still letting the photography read through —
+     it's a photographer's site, the work should be visible. */
+  .hero-scrim{
+    position:absolute;inset:0;z-index:1;
+    background:
+      radial-gradient(ellipse at 50% 45%, rgba(11,14,19,.18) 0%, rgba(11,14,19,.55) 62%, rgba(11,14,19,.84) 100%),
+      linear-gradient(180deg, rgba(11,14,19,.72) 0%, rgba(11,14,19,.14) 34%, rgba(11,14,19,.55) 72%, rgba(11,14,19,.94) 100%);
+  }
+  .hero h1{text-shadow:0 2px 26px rgba(0,0,0,.6)}
+  .hero .lede{text-shadow:0 1px 16px rgba(0,0,0,.7)}
+  .hero-inner{position:relative;z-index:2;max-width:840px}
+  .pill{
+    display:inline-flex;align-items:center;gap:9px;font-size:.78rem;font-weight:600;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--sky);background:rgba(56,189,248,.1);
+    border:1px solid rgba(56,189,248,.28);padding:8px 16px;border-radius:100px;margin-bottom:26px;
+  }
+  .dot{width:6px;height:6px;border-radius:50%;background:var(--sky);animation:blink 2s infinite}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+  .hero h1{
+    font-size:clamp(2.4rem,6.4vw,4.6rem);line-height:1.04;font-weight:800;letter-spacing:-.035em;margin-bottom:22px;
+  }
+  .grad{
+    background:linear-gradient(120deg,var(--sky) 10%,#a5f3fc 45%,var(--amber) 95%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  }
+  .hero .lede{font-size:clamp(1rem,2vw,1.18rem);color:#cbd5e1;max-width:620px;margin:0 auto 38px}
+  .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:.98rem;
+    padding:15px 30px;border-radius:100px;transition:.25s;border:1.5px solid transparent;cursor:pointer;
+  }
+  .btn-main{background:var(--sky);color:#04141f;box-shadow:0 10px 30px rgba(56,189,248,.3)}
+  .btn-main:hover{background:#7dd3fc;transform:translateY(-2px);box-shadow:0 16px 38px rgba(56,189,248,.42)}
+  .btn-ghost{border-color:rgba(255,255,255,.28);color:#fff;backdrop-filter:blur(6px)}
+  .btn-ghost:hover{background:rgba(255,255,255,.1);border-color:#fff;transform:translateY(-2px)}
+  .hero-stats{
+    display:flex;gap:38px;justify-content:center;flex-wrap:wrap;margin-top:60px;
+    padding-top:34px;border-top:1px solid var(--line);
+  }
+  .hstat b{display:block;font-size:1.75rem;font-weight:800;letter-spacing:-.02em}
+  .hstat span{font-size:.79rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+
+  /* ---------- Sections ---------- */
+  section{padding:110px 0;position:relative}
+  .head{max-width:660px;margin:0 auto 62px;text-align:center}
+  .kicker{
+    font-size:.76rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--sky);margin-bottom:14px;
+  }
+  .head h2{font-size:clamp(1.9rem,4.2vw,2.8rem);font-weight:800;letter-spacing:-.03em;line-height:1.14;margin-bottom:16px}
+  .head p{color:var(--muted);font-size:1.03rem}
+
+  .rv{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.3,1),transform .8s cubic-bezier(.2,.7,.3,1)}
+  .rv.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+  /* ---------- Services ---------- */
+  .services{background:var(--ink-2)}
+  .svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:20px}
+  .svc{
+    position:relative;border-radius:18px;overflow:hidden;min-height:340px;display:flex;
+    align-items:flex-end;border:1px solid var(--line);transition:.4s;isolation:isolate;
+  }
+  .svc::before{
+    content:"";position:absolute;inset:0;z-index:-2;background-size:cover;background-position:center;transition:transform .7s ease;
+  }
+  .svc::after{
+    content:"";position:absolute;inset:0;z-index:-1;
+    background:linear-gradient(180deg,rgba(11,14,19,.15) 0%,rgba(11,14,19,.72) 55%,rgba(11,14,19,.96) 100%);
+  }
+  .svc:hover{transform:translateY(-7px);border-color:rgba(56,189,248,.4);box-shadow:0 24px 50px rgba(0,0,0,.5)}
+  .svc:hover::before{transform:scale(1.09)}
+  .s1::before{background-image:url('images/wed-kiss.jpg')}
+  .s2::before{background-image:url('images/aerial-venue.jpg')}
+  .s3::before{background-image:url('images/gear-cameras.jpg')}
+  .s4::before{background-image:url('images/wed-arch.jpg')}
+  .s5::before{background-image:url('images/merch-shirts.jpg')}
+  .s6::before{background-image:url('images/drone-survey.jpg')}
+  .svc-body{padding:28px 26px;width:100%}
+  .svc-ico{
+    width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:1.25rem;
+    background:rgba(56,189,248,.16);border:1px solid rgba(56,189,248,.34);backdrop-filter:blur(8px);margin-bottom:16px;
+  }
+  .svc h3{font-size:1.22rem;font-weight:700;letter-spacing:-.01em;margin-bottom:8px}
+  .svc p{font-size:.92rem;color:#b6c2d2;line-height:1.6}
+
+  /* ---------- Drone feature ---------- */
+  .drone{background:var(--ink);overflow:hidden}
+  .drone-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center}
+  .drone-copy .kicker{text-align:left}
+  .drone-copy h2{font-size:clamp(1.9rem,4vw,2.7rem);font-weight:800;letter-spacing:-.03em;line-height:1.14;margin-bottom:18px}
+  .drone-copy>p{color:var(--muted);margin-bottom:26px;font-size:1.02rem}
+  .ticks{list-style:none;margin-bottom:34px}
+  .ticks li{
+    display:flex;gap:13px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--line);font-size:.96rem;
+  }
+  .ticks li:last-child{border-bottom:0}
+  .tick{
+    flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:.7rem;font-weight:800;
+    background:rgba(56,189,248,.16);color:var(--sky);border:1px solid rgba(56,189,248,.35);margin-top:3px;
+  }
+  .drone-art{position:relative}
+  .drone-art img{border-radius:18px;border:1px solid var(--line);box-shadow:0 30px 70px rgba(0,0,0,.6)}
+  .drone-art .float{
+    position:absolute;bottom:-26px;left:-26px;width:52%;border-radius:14px;
+    border:3px solid var(--ink);box-shadow:0 20px 50px rgba(0,0,0,.7);
+  }
+  .glow{
+    position:absolute;width:420px;height:420px;border-radius:50%;filter:blur(120px);
+    background:rgba(56,189,248,.22);top:-90px;right:-110px;z-index:-1;pointer-events:none;
+  }
+
+  /* ---------- Portfolio ---------- */
+  .work{background:var(--ink-2)}
+  .filters{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+  .filters button{
+    background:transparent;border:1px solid var(--line);color:#cbd5e1;padding:9px 20px;border-radius:100px;
+    font-size:.88rem;font-weight:600;cursor:pointer;transition:.22s;font-family:inherit;
+  }
+  .filters button:hover{border-color:rgba(56,189,248,.5);color:#fff}
+  .filters button.act{background:var(--sky);border-color:var(--sky);color:#04141f}
+  /* dense packing keeps the mosaic gap-free as tiles span rows/cols and as
+     the filter buttons hide tiles */
+  .grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:14px;grid-auto-rows:210px;
+    grid-auto-flow:dense;
+  }
+  .tile{
+    position:relative;border-radius:14px;overflow:hidden;cursor:pointer;border:1px solid var(--line);
+    transition:opacity .4s ease, transform .4s ease;
+  }
+  .tile.tall{grid-row:span 2}
+  .tile.wide{grid-column:span 2}
+  .tile img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.3,1)}
+  .tile:hover img{transform:scale(1.09)}
+  .tile figcaption{
+    position:absolute;inset:auto 0 0 0;padding:34px 16px 14px;font-size:.85rem;font-weight:600;
+    background:linear-gradient(transparent,rgba(11,14,19,.92));opacity:0;transform:translateY(8px);transition:.35s;
+  }
+  .tile:hover figcaption{opacity:1;transform:none}
+  .tile.hide{display:none}
+
+  /* ---------- Process ---------- */
+  .process{background:var(--ink)}
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px;counter-reset:s}
+  .step{padding:30px 26px;border:1px solid var(--line);border-radius:16px;background:var(--ink-2);transition:.3s;position:relative}
+  .step:hover{border-color:rgba(56,189,248,.4);transform:translateY(-5px)}
+  .step::before{
+    counter-increment:s;content:"0" counter(s);
+    font-size:2.4rem;font-weight:800;letter-spacing:-.04em;
+    background:linear-gradient(135deg,var(--sky),rgba(56,189,248,.15));
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+    display:block;margin-bottom:12px;line-height:1;
+  }
+  .step h4{font-size:1.05rem;font-weight:700;margin-bottom:8px}
+  .step p{font-size:.9rem;color:var(--muted)}
+
+  /* ---------- CTA band ---------- */
+  .band{
+    position:relative;padding:100px 0;text-align:center;overflow:hidden;
+    background:linear-gradient(rgba(11,14,19,.86),rgba(11,14,19,.92)),url('images/aerial-tents.jpg') center/cover fixed no-repeat;
+  }
+  .band h2{font-size:clamp(1.9rem,4.4vw,3rem);font-weight:800;letter-spacing:-.03em;margin-bottom:16px;line-height:1.14}
+  .band p{color:#cbd5e1;max-width:520px;margin:0 auto 34px}
+
+  /* ---------- Contact ---------- */
+  .contact{background:var(--ink-2)}
+  .c-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+  .c-card{
+    display:flex;gap:16px;align-items:flex-start;padding:20px;border:1px solid var(--line);
+    border-radius:14px;margin-bottom:14px;transition:.25s;background:var(--ink);
+  }
+  .c-card:hover{border-color:rgba(56,189,248,.42);transform:translateX(5px)}
+  .c-ico{
+    flex:none;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:1.2rem;
+    background:rgba(56,189,248,.14);border:1px solid rgba(56,189,248,.3);
+  }
+  .c-card h4{font-size:.76rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:5px;font-weight:700}
+  .c-card p, .c-card a{font-size:1rem;font-weight:600;word-break:break-word}
+  .c-card a:hover{color:var(--sky)}
+  form{background:var(--ink);border:1px solid var(--line);border-radius:18px;padding:32px}
+  form h3{font-size:1.3rem;font-weight:700;margin-bottom:6px;letter-spacing:-.02em}
+  form>p{color:var(--muted);font-size:.92rem;margin-bottom:24px}
+  .field{margin-bottom:16px}
+  .field label{display:block;font-size:.8rem;font-weight:600;color:#cbd5e1;margin-bottom:7px}
+  .field input,.field select,.field textarea{
+    width:100%;background:var(--ink-3);border:1px solid var(--line);border-radius:10px;
+    padding:13px 15px;color:#fff;font-size:.95rem;font-family:inherit;transition:.2s;
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{
+    outline:none;border-color:var(--sky);box-shadow:0 0 0 3px rgba(56,189,248,.14)
+  }
+  .field textarea{resize:vertical;min-height:110px}
+  form button{width:100%;justify-content:center;margin-top:8px}
+  .form-note{font-size:.8rem;color:var(--muted);text-align:center;margin-top:14px}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--ink);border-top:1px solid var(--line);padding:60px 0 28px}
+  .f-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:44px;margin-bottom:44px}
+  .f-grid h5{font-size:.78rem;text-transform:uppercase;letter-spacing:.13em;color:var(--sky);margin-bottom:16px;font-weight:700}
+  .f-grid p{color:var(--muted);font-size:.92rem;margin-bottom:12px;max-width:320px}
+  .f-grid a{display:block;color:var(--muted);font-size:.92rem;margin-bottom:11px;transition:.2s}
+  .f-grid a:hover{color:var(--sky);transform:translateX(3px)}
+  .f-bot{border-top:1px solid var(--line);padding-top:24px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:.84rem;color:#64748b}
+
+  .wa{
+    position:fixed;right:22px;bottom:22px;z-index:150;width:58px;height:58px;border-radius:50%;
+    background:#25D366;display:grid;place-items:center;font-size:1.6rem;
+    box-shadow:0 10px 30px rgba(37,211,102,.42);transition:.25s;
+  }
+  .wa:hover{transform:scale(1.09)}
+  .wa::after{
+    content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #25D366;
+    animation:ring 2.4s ease-out infinite;
+  }
+  @keyframes ring{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.7);opacity:0}}
+
+  /* ---------- Responsive ---------- */
+  @media(min-width:901px){ .hero{min-height:88vh} }
+  @media(max-width:900px){
+    .drone-grid,.c-grid{grid-template-columns:1fr;gap:44px}
+    .drone-art .float{width:44%;left:-14px;bottom:-18px}
+    .grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:170px}
+    .f-grid{grid-template-columns:1fr;gap:30px}
+    .band{background-attachment:scroll}
+    section{padding:80px 0}
+    .burger{display:block}
+    .navlinks{
+      position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;
+      background:rgba(11,14,19,.98);backdrop-filter:blur(16px);border-top:1px solid var(--line);
+      max-height:0;overflow:hidden;transition:max-height .38s ease;padding:0 16px;
+    }
+    .navlinks.open{max-height:440px;padding:12px 16px 20px}
+    .navlinks a{padding:13px 10px;border-bottom:1px solid var(--line)}
+    .nav-cta{margin:12px 0 0;text-align:center;justify-content:center}
+    .hero-stats{gap:26px;margin-top:44px}
+  }
+  @media(max-width:560px){
+    .grid{grid-template-columns:1fr;grid-auto-rows:220px}
+    .tile.wide{grid-column:span 1}
+    .tile.tall{grid-row:span 1}
+    .hstat b{font-size:1.4rem}
+  }
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <nav>
+    <a href="#" class="brand"><span class="brand-mark">📹</span> Skyroarer <span>Media</span></a>
+    <div class="navlinks" id="nav">
+      <a href="#services">Services</a>
+      <a href="#drone">Drone Hire</a>
+      <a href="#work">Portfolio</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+      <a class="nav-cta" href="https://wa.me/263773035514?text=Hi%20Skyroarer%20Media%2C%20I%27d%20like%20to%20book%20a%20shoot." target="_blank" rel="noopener">Book a Shoot</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Toggle menu">☰</button>
+  </nav>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-scrim"></div>
+  <div class="hero-inner">
+    <div class="pill"><span class="dot"></span> Harare · Zimbabwe · Always Open</div>
+    <h1>Every moment deserves<br><span class="grad">a cinematic eye.</span></h1>
+    <p class="lede">Professional video filming, photography and drone coverage for weddings, events and brands across Zimbabwe. <strong style="color:#fff">Quality is our only language.</strong></p>
+    <div class="cta-row">
+      <a class="btn btn-main" href="https://wa.me/263773035514?text=Hi%20Skyroarer%20Media%2C%20I%27d%20like%20to%20book%20a%20shoot." target="_blank" rel="noopener">💬 Book on WhatsApp</a>
+      <a class="btn btn-ghost" href="#work">View Our Work</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><b>340+</b><span>Shoots Delivered</span></div>
+      <div class="hstat"><b>1.2K</b><span>Followers</span></div>
+      <div class="hstat"><b>4K</b><span>Aerial Ready</span></div>
+      <div class="hstat"><b>24/7</b><span>Always Open</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="kicker">What We Do</div>
+      <h2>One team, every angle covered</h2>
+      <p>From the first look to the final aerial pull-back — we handle the whole story, on the ground and in the sky.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc s1 rv">
+        <div class="svc-body">
+          <div class="svc-ico">💍</div>
+          <h3>Wedding Photography</h3>
+          <p>Full-day coverage that captures the vows, the tears and every moment in between — beautifully edited and delivered fast.</p>
+        </div>
+      </article>
+      <article class="svc s2 rv">
+        <div class="svc-body">
+          <div class="svc-ico">🚁</div>
+          <h3>Aerial &amp; Drone</h3>
+          <p>Sweeping 4K aerials of your venue, event or property. Licensed pilots, professional-grade equipment.</p>
+        </div>
+      </article>
+      <article class="svc s3 rv">
+        <div class="svc-body">
+          <div class="svc-ico">🎬</div>
+          <h3>Video Production</h3>
+          <p>Cinematic films, highlight reels and corporate video shot on professional HD and 4K cameras.</p>
+        </div>
+      </article>
+      <article class="svc s4 rv">
+        <div class="svc-body">
+          <div class="svc-ico">🎉</div>
+          <h3>Event Coverage</h3>
+          <p>Birthdays, graduations, launches and conferences — documented from every angle, start to finish.</p>
+        </div>
+      </article>
+      <article class="svc s5 rv">
+        <div class="svc-body">
+          <div class="svc-ico">👕</div>
+          <h3>Custom Printing</h3>
+          <p>Branded bridal-party tees, event merch and personalised apparel printed to match your big day.</p>
+        </div>
+      </article>
+      <article class="svc s6 rv">
+        <div class="svc-body">
+          <div class="svc-ico">🗺️</div>
+          <h3>Survey &amp; Mapping</h3>
+          <p>Aerial site surveys, construction progress tracking and land mapping for agriculture and development.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DRONE ================= -->
+<section class="drone" id="drone">
+  <div class="glow"></div>
+  <div class="wrap drone-grid">
+    <div class="drone-copy rv">
+      <div class="kicker">Drone For Hire</div>
+      <h2>Get the shot nobody else can get</h2>
+      <p>Our drone fleet is available for hire — with a qualified pilot behind the controls. Whether it's a wedding venue reveal, a property listing or a construction site survey, we deliver broadcast-quality aerial footage.</p>
+      <ul class="ticks">
+        <li><span class="tick">✓</span><span><strong>4K aerial video &amp; stills</strong> — crisp, colour-graded and ready to publish</span></li>
+        <li><span class="tick">✓</span><span><strong>Experienced pilot included</strong> — safe, insured and compliant flying</span></li>
+        <li><span class="tick">✓</span><span><strong>Same-day previews</strong> — see selected frames before you leave the venue</span></li>
+        <li><span class="tick">✓</span><span><strong>Mapping &amp; survey data</strong> — orthomosaics and progress tracking on request</span></li>
+      </ul>
+      <a class="btn btn-main" href="https://wa.me/263773035514?text=Hi%20Skyroarer%20Media%2C%20I%27d%20like%20to%20hire%20a%20drone." target="_blank" rel="noopener">Enquire About Drone Hire →</a>
+    </div>
+    <div class="drone-art rv">
+      <img src="images/drone-hire.jpg" alt="Skyroarer Media drone available for hire">
+      <img class="float" src="images/aerial-venue.jpg" alt="Aerial view of an event venue captured by drone">
+    </div>
+  </div>
+</section>
+
+<!-- ================= PORTFOLIO ================= -->
+<section class="work" id="work">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="kicker">Portfolio</div>
+      <h2>Recent work</h2>
+      <p>A selection of weddings, events and aerial shoots from around Harare and beyond.</p>
+    </div>
+    <div class="filters rv">
+      <button class="act" data-f="all">All</button>
+      <button data-f="wedding">Weddings</button>
+      <button data-f="aerial">Aerial</button>
+      <button data-f="gear">Behind the Scenes</button>
+      <button data-f="print">Printing</button>
+    </div>
+    <div class="grid" id="grid">
+      <figure class="tile tall rv" data-c="wedding"><img src="images/wed-portrait.jpg" alt="Bride and groom portrait in a garden"><figcaption>Garden Ceremony · Harare</figcaption></figure>
+      <figure class="tile wide rv" data-c="aerial"><img src="images/aerial-venue.jpg" alt="Aerial shot of a wedding venue with marquee tents"><figcaption>Venue Reveal · Aerial 4K</figcaption></figure>
+      <figure class="tile rv" data-c="wedding"><img src="images/wed-kiss.jpg" alt="Couple kissing framed by foliage"><figcaption>The First Kiss</figcaption></figure>
+      <figure class="tile rv" data-c="wedding"><img src="images/wed-grass.jpg" alt="Newlyweds seated on grass"><figcaption>Couple Session</figcaption></figure>
+      <figure class="tile wide rv" data-c="aerial"><img src="images/aerial-tents.jpg" alt="Aerial view of event marquees from above"><figcaption>Full Event Layout · Drone</figcaption></figure>
+      <figure class="tile rv" data-c="wedding"><img src="images/wed-arch.jpg" alt="Bride and groom under a floral arch"><figcaption>Grand Entrance</figcaption></figure>
+      <figure class="tile rv" data-c="gear"><img src="images/gear-cameras.jpg" alt="Professional Sony camcorder and Canon DSLR"><figcaption>Our Kit</figcaption></figure>
+      <figure class="tile rv" data-c="aerial"><img src="images/drone-field.jpg" alt="Drone and controller ready for flight"><figcaption>Pre-Flight Checks</figcaption></figure>
+      <figure class="tile tall rv" data-c="print"><img src="images/merch-shirts.jpg" alt="Custom printed bridal party t-shirts"><figcaption>Bridal Party Tees</figcaption></figure>
+      <figure class="tile wide rv" data-c="gear"><img src="images/drone-kit.jpg" alt="DJI drone kit with accessories"><figcaption>Drone Fleet</figcaption></figure>
+      <figure class="tile rv" data-c="aerial"><img src="images/drone-hire.jpg" alt="Drone available for hire"><figcaption>Drone For Hire</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="kicker">How It Works</div>
+      <h2>Simple from first call to final delivery</h2>
+      <p>No jargon, no surprises — just a clear process and work you'll be proud to share.</p>
+    </div>
+    <div class="steps">
+      <div class="step rv"><h4>Get in touch</h4><p>Message us on WhatsApp with your date, venue and what you have in mind. We reply fast.</p></div>
+      <div class="step rv"><h4>Plan the shoot</h4><p>We agree on coverage, timings and deliverables, then lock in your date with a booking.</p></div>
+      <div class="step rv"><h4>Shoot day</h4><p>Our team arrives early, blends in, and captures everything — ground and aerial.</p></div>
+      <div class="step rv"><h4>Edit &amp; deliver</h4><p>Professionally colour-graded photos and video, delivered digitally and ready to share.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA BAND ================= -->
+<section class="band">
+  <div class="wrap rv">
+    <h2>Let's make something<br>worth watching.</h2>
+    <p>Dates fill up fast, especially in wedding season. Send us a message and we'll check availability for you today.</p>
+    <div class="cta-row">
+      <a class="btn btn-main" href="https://wa.me/263773035514?text=Hi%20Skyroarer%20Media%2C%20are%20you%20available%20for%20my%20date%3F" target="_blank" rel="noopener">💬 Check Availability</a>
+      <a class="btn btn-ghost" href="tel:+263718723986">📞 071 872 3986</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="kicker">Get In Touch</div>
+      <h2>Book your shoot</h2>
+      <p>Tell us about your event — we'll come back to you with availability and a quote.</p>
+    </div>
+    <div class="c-grid">
+      <div class="rv">
+        <a class="c-card" href="https://wa.me/263773035514" target="_blank" rel="noopener">
+          <span class="c-ico">💬</span>
+          <span><h4>WhatsApp</h4><p>+263 77 303 5514</p></span>
+        </a>
+        <a class="c-card" href="tel:+263718723986">
+          <span class="c-ico">📞</span>
+          <span><h4>Phone</h4><p>071 872 3986</p></span>
+        </a>
+        <a class="c-card" href="tel:+263772421368">
+          <span class="c-ico">📱</span>
+          <span><h4>Alternative</h4><p>+263 77 242 1368</p></span>
+        </a>
+        <a class="c-card" href="mailto:valentinemunhu@gmail.com">
+          <span class="c-ico">✉️</span>
+          <span><h4>Email</h4><p>valentinemunhu@gmail.com</p></span>
+        </a>
+        <div class="c-card">
+          <span class="c-ico">📍</span>
+          <span><h4>Studio</h4><p>Samora Machel, Harare, Zimbabwe</p></span>
+        </div>
+        <!-- TODO: replace href with the real Facebook page URL once confirmed with the client -->
+        <div class="c-card">
+          <span class="c-ico">👍</span>
+          <span><h4>Facebook</h4><p>Skyroarer Media</p></span>
+        </div>
+      </div>
+
+      <form class="rv" id="bookForm">
+        <h3>Request a quote</h3>
+        <p>Fill this in and it opens WhatsApp with your details ready to send.</p>
+        <div class="field">
+          <label for="nm">Your name</label>
+          <input id="nm" type="text" placeholder="e.g. Tendai Moyo" required>
+        </div>
+        <div class="field">
+          <label for="sv">Service needed</label>
+          <select id="sv">
+            <option>Wedding Photography</option>
+            <option>Wedding Videography</option>
+            <option>Drone / Aerial Coverage</option>
+            <option>Event Coverage</option>
+            <option>Custom Printing</option>
+            <option>Survey &amp; Mapping</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="dt">Event date</label>
+          <input id="dt" type="date">
+        </div>
+        <div class="field">
+          <label for="ms">Details</label>
+          <textarea id="ms" placeholder="Venue, number of guests, hours of coverage…"></textarea>
+        </div>
+        <button class="btn btn-main" type="submit">💬 Send via WhatsApp</button>
+        <p class="form-note">Opens WhatsApp — nothing is sent until you press send.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <div class="brand" style="margin-bottom:16px"><span class="brand-mark">📹</span> Skyroarer <span>Media</span></div>
+        <p>Professional video filming, photography and drone hire based in Harare, Zimbabwe. Quality is our only language.</p>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <a href="#services">Wedding Photography</a>
+        <a href="#drone">Drone Hire</a>
+        <a href="#services">Video Production</a>
+        <a href="#services">Event Coverage</a>
+        <a href="#services">Custom Printing</a>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <a href="https://wa.me/263773035514" target="_blank" rel="noopener">WhatsApp +263 77 303 5514</a>
+        <a href="tel:+263718723986">071 872 3986</a>
+        <a href="mailto:valentinemunhu@gmail.com">valentinemunhu@gmail.com</a>
+        <a href="#contact">Samora Machel, Harare</a>
+      </div>
+    </div>
+    <div class="f-bot">
+      <span>© <span id="yr">2026</span> Skyroarer Media. All rights reserved.</span>
+      <span>Website by Phillip — Web Design</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/263773035514?text=Hi%20Skyroarer%20Media%2C%20I%27d%20like%20to%20book%20a%20shoot." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
+
+<script>
+  // ---- Hero slideshow ----
+  const shots = [
+    'images/wed-grass.jpg',
+    'images/aerial-venue.jpg',
+    'images/wed-kiss.jpg',
+    'images/drone-survey.jpg',
+    'images/wed-arch.jpg',
+    'images/aerial-tents.jpg'
+  ];
+  const bg = document.getElementById('heroBg');
+  shots.forEach((src,i)=>{
+    const d = document.createElement('div');
+    d.className = 'shot' + (i===0 ? ' on' : '');
+    d.style.backgroundImage = `url('${src}')`;
+    bg.appendChild(d);
+  });
+  const shotEls = bg.querySelectorAll('.shot');
+  let si = 0;
+  setInterval(()=>{
+    shotEls[si].classList.remove('on');
+    si = (si + 1) % shotEls.length;
+    shotEls[si].classList.add('on');
+  }, 5200);
+
+  // ---- Reveal on scroll ----
+  const io = new IntersectionObserver((es)=>{
+    es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.08, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach((el,i)=>{
+    el.style.transitionDelay = `${Math.min(i%6,5)*60}ms`;
+    io.observe(el);
+  });
+  window.addEventListener('load', ()=>{
+    setTimeout(()=>document.querySelectorAll('.rv:not(.in)').forEach(el=>el.classList.add('in')), 700);
+  });
+
+  // ---- Sticky nav ----
+  const hdr = document.getElementById('hdr');
+  const onScroll = ()=> hdr.classList.toggle('solid', window.scrollY > 40);
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+  // ---- Mobile menu ----
+  const nav = document.getElementById('nav');
+  document.getElementById('burger').addEventListener('click', ()=> nav.classList.toggle('open'));
+  nav.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=> nav.classList.remove('open')));
+
+  // ---- Portfolio filter ----
+  const btns = document.querySelectorAll('.filters button');
+  const tiles = document.querySelectorAll('.tile');
+  btns.forEach(b=>b.addEventListener('click', ()=>{
+    btns.forEach(x=>x.classList.remove('act'));
+    b.classList.add('act');
+    const f = b.dataset.f;
+    tiles.forEach(t=> t.classList.toggle('hide', f !== 'all' && t.dataset.c !== f));
+  }));
+
+  // ---- Quote form → WhatsApp ----
+  document.getElementById('bookForm').addEventListener('submit', e=>{
+    e.preventDefault();
+    const name = document.getElementById('nm').value.trim();
+    const svc  = document.getElementById('sv').value;
+    const date = document.getElementById('dt').value;
+    const msg  = document.getElementById('ms').value.trim();
+    let t = `Hi Skyroarer Media, my name is ${name || '—'}.\n\nI'd like to enquire about: ${svc}`;
+    if (date) t += `\nEvent date: ${date}`;
+    if (msg)  t += `\n\nDetails: ${msg}`;
+    window.open(`https://wa.me/263773035514?text=${encodeURIComponent(t)}`, '_blank', 'noopener');
+  });
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
