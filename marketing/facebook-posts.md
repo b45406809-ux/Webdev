@@ -3,7 +3,7 @@
 **Contact used throughout:** WhatsApp `078 599 2570` → `https://wa.me/263785992570`
 **Site:** https://phillip-web.pages.dev
 
-> Pair each caption with the matching poster in `posters/`. Post 2–3 times a week, rotate the angles (offer → proof → education → offer). Best times for Zimbabwe audiences: 12–1pm and 6–8pm.
+> Pair each caption with the matching poster in `posters/`. Post 2–3 times a week, rotate the angles (offer → proof → education → offer). Best times: 12–1pm and 6–8pm.
 
 ---
 
@@ -14,7 +14,7 @@
 >
 > If customers can't find you online, they're finding your competitor instead.
 >
-> I build clean, modern, mobile-friendly websites for small businesses here in Zimbabwe — lodges, salons, schools, media companies, hardware shops, anyone.
+> I build clean, modern, mobile-friendly websites for small businesses — lodges, salons, schools, media companies, hardware shops, anyone.
 >
 > ✅ Looks perfect on every phone
 > ✅ WhatsApp booking button built in
@@ -23,7 +23,7 @@
 >
 > 💬 WhatsApp me: 078 599 2570
 >
-> #Zimbabwe #Harare #WebDesign #SmallBusinessZim #WebsiteDesign
+> #Harare #WebDesign #SmallBusiness #WebsiteDesign
 
 ---
 
@@ -49,7 +49,7 @@
 >
 > 💬 078 599 2570
 >
-> #WebDesignZimbabwe #Harare #AffordableWebsites #SmallBusiness
+> #WebDesign #Harare #AffordableWebsites #SmallBusiness
 
 ---
 
@@ -66,13 +66,13 @@
 > 🔥 Flame International
 > 🎓 Pathway Schools
 >
-> Every one of them is mobile-first with a WhatsApp button, because that's how Zimbabwe actually books.
+> Every one of them is mobile-first with a WhatsApp button, because that's how people actually book.
 >
 > Want to see what yours would look like? I'll make you a free mock-up — no payment until you're happy.
 >
 > 💬 078 599 2570 · Sites from $30
 >
-> #Portfolio #WebDesign #Harare #Zimbabwe #SmallBusinessZim
+> #Portfolio #WebDesign #Harare #SmallBusiness
 
 ---
 
@@ -94,7 +94,7 @@
 >
 > 💬 078 599 2570
 >
-> #Zimbabwe #Harare #DigitalMarketing #SmallBusiness #WebDesign
+> #Harare #DigitalMarketing #SmallBusiness #WebDesign
 
 ---
 
