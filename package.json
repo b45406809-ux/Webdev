@@ -8,7 +8,9 @@
     "add": "node index.js add",
     "list": "node index.js list",
     "build": "node index.js build",
-    "queue": "node index.js queue"
+    "queue": "node index.js queue",
+    "build:averk": "node scripts/buildAverk.js",
+    "deploy:averk": "npm run build:averk && wrangler pages deploy .deploy/averk --project-name averk"
   },
   "repository": {
     "type": "git",
