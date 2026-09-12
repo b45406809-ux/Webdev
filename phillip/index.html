@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phillip — 3D Web Design That Makes Your Business Look Serious</title>
+<meta name="description" content="Stunning, modern, mobile-first websites for small businesses in Zimbabwe. From $30. Free mock-up before you pay. WhatsApp 078 599 2570.">
+<meta property="og:title" content="Phillip — Web Design from $30">
+<meta property="og:description" content="Modern 3D websites for small businesses in Zimbabwe. Free mock-up before you pay.">
+<meta name="theme-color" content="#05060d">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%236366f1'/><text y='.86em' x='50' text-anchor='middle' font-size='64' font-family='Arial' font-weight='bold' fill='white'>P</text></svg>">
+<style>
+:root{
+  --bg:#05060d;
+  --bg2:#0a0d1a;
+  --card:rgba(255,255,255,.045);
+  --line:rgba(255,255,255,.1);
+  --txt:#eef2f8;
+  --dim:#94a3b8;
+  --indigo:#6366f1;
+  --sky:#38bdf8;
+  --cyan:#22d3ee;
+  --pink:#ec4899;
+  --green:#34d399;
+  --r:22px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;
+  background:var(--bg);color:var(--txt);line-height:1.65;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+::selection{background:var(--indigo);color:#fff}
+
+/* ---------- ambient background ---------- */
+#stars{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.7}
+.aurora{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.aurora i{position:absolute;border-radius:50%;filter:blur(110px);opacity:.5;display:block;will-change:transform}
+.a1{width:640px;height:640px;background:#4f46e5;top:-220px;left:-180px;animation:drift1 26s ease-in-out infinite alternate}
+.a2{width:560px;height:560px;background:#0ea5e9;top:38%;right:-200px;animation:drift2 32s ease-in-out infinite alternate}
+.a3{width:520px;height:520px;background:#db2777;bottom:-180px;left:22%;opacity:.32;animation:drift3 29s ease-in-out infinite alternate}
+@keyframes drift1{to{transform:translate3d(160px,110px,0) scale(1.18)}}
+@keyframes drift2{to{transform:translate3d(-150px,-120px,0) scale(1.12)}}
+@keyframes drift3{to{transform:translate3d(120px,-90px,0) scale(1.22)}}
+.vignette{position:fixed;inset:0;z-index:1;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 0%,transparent 30%,rgba(5,6,13,.55) 78%,var(--bg) 100%)}
+.grain{position:fixed;inset:0;z-index:2;pointer-events:none;opacity:.032;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E")}
+.cursor-glow{position:fixed;width:520px;height:520px;border-radius:50%;pointer-events:none;z-index:3;
+  background:radial-gradient(circle,rgba(99,102,241,.13),transparent 62%);
+  transform:translate(-50%,-50%);left:50%;top:30%;transition:opacity .4s;will-change:transform}
+main,header,footer{position:relative;z-index:5}
+
+/* ---------- nav ---------- */
+header{position:fixed;inset:0 0 auto 0;z-index:100;transition:.4s}
+header.stuck{background:rgba(5,6,13,.72);backdrop-filter:blur(20px) saturate(150%);
+  border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:16px 24px}
+.logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:1.08rem;letter-spacing:-.02em}
+.logo b{
+  width:38px;height:38px;border-radius:11px;display:grid;place-items:center;font-size:1.05rem;color:#fff;
+  background:linear-gradient(135deg,var(--indigo),var(--sky));box-shadow:0 6px 22px rgba(99,102,241,.5);
+  transform-style:preserve-3d;animation:logospin 9s ease-in-out infinite;
+}
+@keyframes logospin{0%,72%,100%{transform:rotateY(0)}82%{transform:rotateY(180deg)}}
+.logo span{color:var(--dim);font-weight:500;font-size:.95rem}
+.links{display:flex;align-items:center;gap:4px}
+.links a{padding:9px 15px;border-radius:10px;font-size:.92rem;color:#cbd5e1;transition:.22s;font-weight:500}
+.links a:hover{color:#fff;background:rgba(255,255,255,.07)}
+.navbtn{
+  background:linear-gradient(135deg,var(--indigo),var(--sky))!important;color:#fff!important;
+  font-weight:700!important;padding:11px 22px!important;margin-left:10px;
+  box-shadow:0 6px 24px rgba(99,102,241,.42);
+}
+.navbtn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(99,102,241,.6)}
+.burger{display:none;background:none;border:0;color:#fff;font-size:1.5rem;cursor:pointer;padding:6px}
+
+/* ---------- hero ---------- */
+.hero{min-height:100vh;display:grid;place-items:center;text-align:center;padding:150px 24px 90px;perspective:1400px}
+.hero-in{max-width:940px;transform-style:preserve-3d}
+.badge{
+  display:inline-flex;align-items:center;gap:10px;padding:9px 20px;border-radius:100px;
+  background:rgba(255,255,255,.06);border:1px solid var(--line);backdrop-filter:blur(10px);
+  font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#c7d2fe;margin-bottom:30px;
+}
+.blip{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green);animation:blip 1.9s infinite}
+@keyframes blip{0%,100%{opacity:1}50%{opacity:.3}}
+h1{font-size:clamp(2.6rem,8vw,5.6rem);line-height:.98;font-weight:900;letter-spacing:-.045em;margin-bottom:26px}
+.shine{
+  background:linear-gradient(100deg,#818cf8,#38bdf8 38%,#22d3ee 60%,#818cf8 88%);
+  background-size:250% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  animation:shine 6s linear infinite;
+}
+@keyframes shine{to{background-position:250% center}}
+.hero p.lede{font-size:clamp(1.02rem,2.1vw,1.22rem);color:#b8c4d4;max-width:640px;margin:0 auto 42px}
+.hero p.lede b{color:#fff;font-weight:700}
+.btns{display:flex;gap:15px;justify-content:center;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;padding:16px 32px;border-radius:100px;
+  font-weight:700;font-size:1rem;border:1.5px solid transparent;cursor:pointer;position:relative;
+  transition:transform .25s cubic-bezier(.2,.8,.3,1),box-shadow .25s,background .25s;will-change:transform;
+}
+.btn-1{background:linear-gradient(135deg,var(--indigo),var(--sky));color:#fff;box-shadow:0 12px 34px rgba(99,102,241,.42)}
+.btn-1:hover{box-shadow:0 20px 46px rgba(99,102,241,.62)}
+.btn-2{border-color:rgba(255,255,255,.22);color:#fff;backdrop-filter:blur(10px);background:rgba(255,255,255,.04)}
+.btn-2:hover{background:rgba(255,255,255,.11);border-color:rgba(255,255,255,.45)}
+
+/* floating 3D deck under hero */
+.deck{margin-top:78px;perspective:1600px;transform-style:preserve-3d}
+.deck-in{position:relative;height:390px;transform-style:preserve-3d;transition:transform .18s ease-out;will-change:transform}
+.pane{
+  position:absolute;left:50%;top:0;border-radius:16px;overflow:hidden;
+  border:1px solid rgba(255,255,255,.16);background:#0b1020;
+  box-shadow:0 40px 90px rgba(0,0,0,.72);transform-style:preserve-3d;
+}
+.pane img{width:100%;display:block}
+/* centred with translate(-50%) so the offsets stay correct at any width */
+.pane-c{width:min(660px,74vw);transform:translateX(-50%) translateZ(60px)}
+.pane-l{width:min(280px,26vw);transform:translateX(-160%) translateZ(-40px) rotateY(19deg) translateY(42px);opacity:.9}
+.pane-r{width:min(220px,22vw);transform:translateX(72%) translateZ(10px) rotateY(-17deg) translateY(20px);opacity:.94}
+.bar{display:flex;gap:6px;padding:10px 13px;background:#131a2e;border-bottom:1px solid rgba(255,255,255,.07)}
+.bar i{width:9px;height:9px;border-radius:50%;background:#ff5f57;display:block}
+.bar i:nth-child(2){background:#febc2e}
+.bar i:nth-child(3){background:#28c840}
+
+/* ---------- marquee ---------- */
+.marq{padding:26px 0;border-block:1px solid var(--line);overflow:hidden;background:rgba(255,255,255,.017)}
+.marq-t{display:flex;gap:52px;width:max-content;animation:slide 26s linear infinite}
+.marq:hover .marq-t{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(-50%)}}
+.marq-t span{font-size:1.02rem;font-weight:700;color:#64748b;white-space:nowrap;display:flex;align-items:center;gap:52px}
+.marq-t span::after{content:"◆";color:var(--indigo);font-size:.62rem}
+
+/* ---------- sections ---------- */
+section{padding:120px 0;position:relative}
+.head{max-width:680px;margin:0 auto 66px;text-align:center}
+.kick{font-size:.76rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  background:linear-gradient(90deg,var(--indigo),var(--cyan));-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;margin-bottom:16px}
+.head h2{font-size:clamp(2rem,4.6vw,3.1rem);font-weight:900;letter-spacing:-.035em;line-height:1.08;margin-bottom:18px}
+.head p{color:var(--dim);font-size:1.05rem}
+
+.rv{opacity:0;transform:translateY(40px) rotateX(9deg);transform-origin:50% 100%;
+  transition:opacity .9s cubic-bezier(.2,.8,.3,1),transform .9s cubic-bezier(.2,.8,.3,1)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .rv{opacity:1;transform:none;transition:none}
+  .aurora i,.marq-t,.logo b,.shine{animation:none!important}
+  html{scroll-behavior:auto}
+}
+
+/* ---------- services (3D tilt cards) ---------- */
+.svcs{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px;perspective:1200px}
+.tilt{
+  position:relative;padding:38px 32px;border-radius:var(--r);background:var(--card);
+  border:1px solid var(--line);backdrop-filter:blur(14px);overflow:hidden;
+  transform-style:preserve-3d;transition:transform .2s ease-out,border-color .3s,box-shadow .3s;will-change:transform;
+}
+.tilt:hover{border-color:rgba(129,140,248,.5);box-shadow:0 30px 70px rgba(0,0,0,.55)}
+.tilt .sheen{
+  position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;
+  background:radial-gradient(380px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.11),transparent 45%);
+}
+.tilt:hover .sheen{opacity:1}
+.ico{
+  width:56px;height:56px;border-radius:16px;display:grid;place-items:center;font-size:1.5rem;margin-bottom:20px;
+  background:linear-gradient(135deg,rgba(99,102,241,.28),rgba(56,189,248,.14));
+  border:1px solid rgba(129,140,248,.34);transform:translateZ(38px);
+}
+.tilt h3{font-size:1.24rem;font-weight:800;letter-spacing:-.02em;margin-bottom:10px;transform:translateZ(26px)}
+.tilt p{font-size:.95rem;color:var(--dim);transform:translateZ(16px)}
+
+/* ---------- work ---------- */
+.work{background:linear-gradient(180deg,transparent,rgba(255,255,255,.022),transparent)}
+.cases{display:grid;gap:30px;perspective:1600px}
+.case{
+  display:grid;grid-template-columns:1fr 1.15fr;gap:46px;align-items:center;
+  padding:44px;border-radius:28px;background:var(--card);border:1px solid var(--line);
+  backdrop-filter:blur(14px);transition:.45s;
+}
+.case:hover{border-color:rgba(129,140,248,.42);background:rgba(255,255,255,.06)}
+.case:nth-child(even) .case-txt{order:2}
+.tagrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.tagrow span{font-size:.72rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  padding:6px 13px;border-radius:100px;background:rgba(99,102,241,.16);
+  border:1px solid rgba(129,140,248,.3);color:#c7d2fe}
+.case h3{font-size:clamp(1.5rem,3vw,2.05rem);font-weight:900;letter-spacing:-.03em;margin-bottom:12px;line-height:1.14}
+.case p{color:var(--dim);margin-bottom:22px;font-size:.99rem}
+.case ul{list-style:none;margin-bottom:26px;display:flex;flex-direction:column;gap:9px}
+.case li{font-size:.93rem;color:#cbd5e1;padding-left:26px;position:relative}
+.case li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:900}
+.frame{
+  border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.16);
+  box-shadow:0 34px 76px rgba(0,0,0,.66);transition:transform .55s cubic-bezier(.2,.8,.3,1);
+  transform:perspective(1300px) rotateY(-13deg) rotateX(4deg) scale(.97);will-change:transform;
+}
+.case:nth-child(even) .frame{transform:perspective(1300px) rotateY(13deg) rotateX(4deg) scale(.97)}
+.case:hover .frame{transform:perspective(1300px) rotateY(0) rotateX(0) scale(1)}
+.linkline{display:inline-flex;align-items:center;gap:9px;font-weight:700;color:var(--sky);font-size:.96rem}
+.linkline:hover{gap:15px;transition:gap .25s}
+
+/* ---------- pricing ---------- */
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));gap:24px;perspective:1400px;align-items:start}
+.plan{
+  position:relative;padding:42px 34px;border-radius:26px;background:var(--card);
+  border:1px solid var(--line);backdrop-filter:blur(14px);transition:.4s cubic-bezier(.2,.8,.3,1);
+  transform-style:preserve-3d;
+}
+.plan:hover{transform:translateY(-12px) rotateX(4deg);box-shadow:0 40px 80px rgba(0,0,0,.6);border-color:rgba(129,140,248,.45)}
+.plan.best{
+  background:linear-gradient(170deg,rgba(99,102,241,.24),rgba(56,189,248,.07));
+  border-color:rgba(129,140,248,.6);box-shadow:0 24px 60px rgba(99,102,241,.24);
+}
+.ribbon{
+  position:absolute;top:-13px;left:50%;transform:translateX(-50%);white-space:nowrap;
+  background:linear-gradient(135deg,var(--green),#10b981);color:#04231a;font-size:.7rem;font-weight:900;
+  padding:7px 18px;border-radius:100px;letter-spacing:.1em;text-transform:uppercase;
+}
+.pname{font-size:.82rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#a5b4fc;margin-bottom:16px}
+.price{font-size:3.6rem;font-weight:900;letter-spacing:-.05em;line-height:1;margin-bottom:6px}
+.price sup{font-size:1.5rem;vertical-align:super;font-weight:800}
+.pnote{color:var(--dim);font-size:.9rem;margin-bottom:28px}
+.plan ul{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+.plan li{font-size:.93rem;color:#dbe3ec;padding-left:27px;position:relative}
+.plan li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:900}
+.plan .btn{width:100%;justify-content:center}
+
+/* ---------- steps ---------- */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:22px;counter-reset:n}
+.stp{padding:34px 28px;border-radius:20px;background:var(--card);border:1px solid var(--line);
+  backdrop-filter:blur(12px);transition:.35s;position:relative;overflow:hidden}
+.stp:hover{transform:translateY(-7px);border-color:rgba(129,140,248,.45)}
+.stp::before{counter-increment:n;content:"0" counter(n);display:block;font-size:2.9rem;font-weight:900;
+  letter-spacing:-.05em;line-height:1;margin-bottom:14px;
+  background:linear-gradient(150deg,var(--sky),rgba(99,102,241,.2));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.stp h4{font-size:1.08rem;font-weight:800;margin-bottom:9px;letter-spacing:-.02em}
+.stp p{font-size:.92rem;color:var(--dim)}
+
+/* ---------- final CTA ---------- */
+.final{text-align:center;padding:130px 0}
+.final-card{
+  position:relative;padding:76px 42px;border-radius:34px;overflow:hidden;
+  background:linear-gradient(150deg,rgba(99,102,241,.22),rgba(34,211,238,.08));
+  border:1px solid rgba(129,140,248,.36);backdrop-filter:blur(16px);
+}
+.final-card::before{
+  content:"";position:absolute;width:520px;height:520px;border-radius:50%;filter:blur(100px);
+  background:rgba(99,102,241,.32);top:-220px;left:50%;transform:translateX(-50%);pointer-events:none;
+}
+.final h2{position:relative;font-size:clamp(2rem,5.2vw,3.4rem);font-weight:900;letter-spacing:-.04em;line-height:1.06;margin-bottom:20px}
+.final p{position:relative;color:#c3cddb;max-width:520px;margin:0 auto 38px;font-size:1.06rem}
+.final .btns{position:relative}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);padding:60px 0 30px}
+.f-top{display:flex;justify-content:space-between;gap:34px;flex-wrap:wrap;margin-bottom:42px}
+.f-top p{color:var(--dim);font-size:.94rem;max-width:330px;margin-top:14px}
+.f-links{display:flex;gap:56px;flex-wrap:wrap}
+.f-links h5{font-size:.74rem;text-transform:uppercase;letter-spacing:.14em;color:#a5b4fc;margin-bottom:15px;font-weight:800}
+.f-links a{display:block;color:var(--dim);font-size:.93rem;margin-bottom:11px;transition:.2s}
+.f-links a:hover{color:var(--sky)}
+.f-bot{border-top:1px solid var(--line);padding-top:24px;display:flex;justify-content:space-between;
+  gap:14px;flex-wrap:wrap;font-size:.85rem;color:#64748b}
+
+.fab{
+  position:fixed;right:24px;bottom:24px;z-index:120;width:60px;height:60px;border-radius:50%;
+  background:#25D366;display:grid;place-items:center;font-size:1.65rem;
+  box-shadow:0 12px 34px rgba(37,211,102,.5);transition:transform .25s;
+}
+.fab:hover{transform:scale(1.1) rotate(6deg)}
+.fab::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #25D366;
+  animation:ripple 2.4s ease-out infinite}
+@keyframes ripple{0%{transform:scale(1);opacity:.75}100%{transform:scale(1.75);opacity:0}}
+
+/* ---------- responsive ---------- */
+@media(max-width:900px){
+  .burger{display:block}
+  .links{
+    position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;
+    background:rgba(5,6,13,.97);backdrop-filter:blur(18px);border-top:1px solid var(--line);
+    max-height:0;overflow:hidden;transition:max-height .4s ease;padding:0 18px;
+  }
+  .links.open{max-height:460px;padding:12px 18px 22px}
+  .links a{padding:14px 10px;border-bottom:1px solid var(--line)}
+  .navbtn{margin:14px 0 0;text-align:center;justify-content:center}
+  .case{grid-template-columns:1fr;gap:32px;padding:30px}
+  .case:nth-child(even) .case-txt{order:0}
+  .frame,.case:nth-child(even) .frame{transform:none}
+  .deck-in{height:250px}
+  .pane-l,.pane-r{display:none}
+  .pane-c{width:92vw;transform:translateX(-50%)}
+  section{padding:84px 0}
+  .cursor-glow{display:none}
+  .final-card{padding:52px 26px}
+}
+@media(max-width:560px){
+  .hero{padding-top:130px}
+  .f-links{gap:34px}
+}
+</style>
+</head>
+<body>
+
+<canvas id="stars"></canvas>
+<div class="aurora"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
+<div class="vignette"></div>
+<div class="grain"></div>
+<div class="cursor-glow" id="glow"></div>
+
+<header id="hdr">
+  <nav>
+    <a href="#" class="logo"><b>P</b> Phillip <span>· Web Design</span></a>
+    <div class="links" id="links">
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#process">Process</a>
+      <a class="navbtn js-wa" href="#contact">Contact Me</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu">☰</button>
+  </nav>
+</header>
+
+<main>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="hero-in">
+    <div class="badge"><span class="blip"></span> Available for new projects</div>
+    <h1>Websites that make<br>your business look<br><span class="shine">seriously good.</span></h1>
+    <p class="lede">Modern, mobile-first sites for small businesses in Zimbabwe — built in days, not months. <b>From $30, and you only pay if you love it.</b></p>
+    <div class="btns">
+      <a class="btn btn-1 js-wa" href="#contact">💬 Start on WhatsApp</a>
+      <a class="btn btn-2" href="#work">See my work</a>
+    </div>
+
+    <div class="deck">
+      <div class="deck-in" id="deck">
+        <div class="pane pane-l"><div class="bar"><i></i><i></i><i></i></div><img src="images/skyroarer-mobile.jpg" alt="Skyroarer Media site on mobile" loading="lazy" width="780" height="1560"></div>
+        <div class="pane pane-c"><div class="bar"><i></i><i></i><i></i></div><img src="images/warthog-desktop.jpg" alt="Warthog Guest Lodge website" loading="lazy" width="2880" height="1800"></div>
+        <div class="pane pane-r"><div class="bar"><i></i><i></i><i></i></div><img src="images/warthog-mobile.jpg" alt="Warthog Guest Lodge on mobile" loading="lazy" width="780" height="1560"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marq">
+  <div class="marq-t">
+    <span>Warthog Guest Lodge</span><span>Skyroarer Media</span><span>Nicki Solar Systems</span>
+    <span>Flame International</span><span>Pathway Schools</span><span>Speciss College</span>
+    <span>Warthog Guest Lodge</span><span>Skyroarer Media</span><span>Nicki Solar Systems</span>
+    <span>Flame International</span><span>Pathway Schools</span><span>Speciss College</span>
+  </div>
+</div>
+
+<!-- ================= SERVICES ================= -->
+<section id="services">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="kick">What I Build</div>
+      <h2>Everything your business needs online</h2>
+      <p>No templates you've seen a hundred times. Every site is built around what your business actually does.</p>
+    </div>
+    <div class="svcs">
+      <div class="tilt rv"><div class="sheen"></div><div class="ico">📱</div><h3>Mobile-First Design</h3><p>Most of your customers are on a phone. Your site is designed for that screen first, then scaled up — never the other way round.</p></div>
+      <div class="tilt rv"><div class="sheen"></div><div class="ico">💬</div><h3>WhatsApp Booking</h3><p>One tap and the enquiry lands in your chat, already filled in with their name and what they want. No forms that go nowhere.</p></div>
+      <div class="tilt rv"><div class="sheen"></div><div class="ico">⚡</div><h3>Fast &amp; Lightweight</h3><p>Built to load quickly even on slow data. No bloated page builders — just clean code that works.</p></div>
+      <div class="tilt rv"><div class="sheen"></div><div class="ico">🔎</div><h3>Google-Ready</h3><p>Proper titles, descriptions and structure so people can actually find you when they search for what you sell.</p></div>
+      <div class="tilt rv"><div class="sheen"></div><div class="ico">🖼️</div><h3>Galleries &amp; Menus</h3><p>Show your rooms, your food, your work. Photo galleries and price lists that make people want to book.</p></div>
+      <div class="tilt rv"><div class="sheen"></div><div class="ico">🛠️</div><h3>Hosting &amp; Domains</h3><p>Free hosting to start. Want your own .co.zw name? I'll set it up and move everything across for you.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WORK ================= -->
+<section class="work" id="work">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="kick">Recent Work</div>
+      <h2>Real sites, real businesses</h2>
+      <p>Built, deployed and handed over. Tap through and try them yourself.</p>
+    </div>
+    <div class="cases">
+
+      <article class="case rv">
+        <div class="case-txt">
+          <div class="tagrow"><span>Hospitality</span><span>One page</span><span>Gallery</span></div>
+          <h3>Warthog Guest Lodge</h3>
+          <p>A BnB in Waterfalls, Harare that was running entirely off a Facebook page. Now it has a proper home online with rooms, rates and a booking button.</p>
+          <ul>
+            <li>Rotating photo hero of the real property</li>
+            <li>Three room tiers with live pricing</li>
+            <li>WhatsApp booking on every room card</li>
+            <li>Google Maps and directions built in</li>
+          </ul>
+          <a class="linkline" href="https://warthog-guest-lodge.pages.dev" target="_blank" rel="noopener">Visit the live site →</a>
+        </div>
+        <div class="frame"><img src="images/warthog-desktop.jpg" alt="Warthog Guest Lodge website" loading="lazy" width="2880" height="1800"></div>
+      </article>
+
+      <article class="case rv">
+        <div class="case-txt">
+          <div class="tagrow"><span>Media</span><span>Portfolio</span><span>Quote form</span></div>
+          <h3>Skyroarer Media</h3>
+          <p>A filming, photography and drone-hire company in Harare. Dark cinematic build that puts their photography front and centre.</p>
+          <ul>
+            <li>Filterable portfolio gallery</li>
+            <li>Dedicated drone-hire section</li>
+            <li>Quote form that composes a WhatsApp message</li>
+            <li>Six service cards with live imagery</li>
+          </ul>
+          <a class="linkline" href="https://skyroarer-media.pages.dev" target="_blank" rel="noopener">Visit the live site →</a>
+        </div>
+        <div class="frame"><img src="images/skyroarer-desktop.jpg" alt="Skyroarer Media website" loading="lazy" width="2880" height="1800"></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRICING ================= -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="kick">Pricing</div>
+      <h2>Straight prices, no surprises</h2>
+      <p>One-off payment. Free mock-up before you commit. If you don't like it, you don't pay.</p>
+    </div>
+    <div class="plans">
+      <div class="plan rv">
+        <div class="pname">Starter</div>
+        <div class="price"><sup>$</sup>30</div>
+        <div class="pnote">A clean one-page site</div>
+        <ul>
+          <li>Single page, all your info</li>
+          <li>Contact details &amp; opening hours</li>
+          <li>WhatsApp &amp; call buttons</li>
+          <li>Works on every phone</li>
+          <li>Free hosting</li>
+        </ul>
+        <a class="btn btn-2 js-wa" href="#contact">Choose Starter</a>
+      </div>
+
+      <div class="plan best rv">
+        <div class="ribbon">Most Popular</div>
+        <div class="pname">Business</div>
+        <div class="price"><sup>$</sup>60</div>
+        <div class="pnote">Full site with everything</div>
+        <ul>
+          <li>Everything in Starter</li>
+          <li>Photo gallery</li>
+          <li>Services &amp; price list</li>
+          <li>Enquiry form → WhatsApp</li>
+          <li>Google Maps embed</li>
+          <li>Google-ready setup</li>
+        </ul>
+        <a class="btn btn-1 js-wa" href="#contact">Choose Business</a>
+      </div>
+
+      <div class="plan rv">
+        <div class="pname">Premium</div>
+        <div class="price"><sup>$</sup>120</div>
+        <div class="pnote">Multi-page &amp; bookings</div>
+        <ul>
+          <li>Everything in Business</li>
+          <li>Multiple pages</li>
+          <li>Booking / reservation system</li>
+          <li>Admin dashboard</li>
+          <li>Domain setup assistance</li>
+          <li>Priority support</li>
+        </ul>
+        <a class="btn btn-2 js-wa" href="#contact">Choose Premium</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section id="process">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="kick">How It Works</div>
+      <h2>From message to live site</h2>
+      <p>Four steps. No contracts, no jargon, no upfront risk.</p>
+    </div>
+    <div class="steps">
+      <div class="stp rv"><h4>You message me</h4><p>Tell me what your business does and send any photos or your Facebook page. That's all I need to start.</p></div>
+      <div class="stp rv"><h4>I build a mock-up</h4><p>I build the real site and send you a live link — completely free, before any money changes hands.</p></div>
+      <div class="stp rv"><h4>We fine-tune it</h4><p>Colours, wording, photos, layout. We adjust until you're genuinely happy with it.</p></div>
+      <div class="stp rv"><h4>It goes live</h4><p>You pay, it goes live on free hosting. Want your own domain? I'll move it across for you.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="final" id="contact">
+  <div class="wrap">
+    <div class="final-card rv">
+      <h2>Let's get your business online.</h2>
+      <p>Send me a message and I'll build you a free mock-up. No payment, no obligation — you'll see the real thing before you decide.</p>
+      <div class="btns">
+        <a class="btn btn-1 js-wa" href="#">💬 Message me on WhatsApp</a>
+        <a class="btn btn-2" href="tel:+263785992570">📞 078 599 2570</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div>
+        <a href="#" class="logo"><b>P</b> Phillip <span>· Web Design</span></a>
+        <p>Modern, affordable websites for small businesses across Zimbabwe. Built fast, priced fair.</p>
+      </div>
+      <div class="f-links">
+        <div>
+          <h5>Explore</h5>
+          <a href="#services">Services</a><a href="#work">Work</a><a href="#pricing">Pricing</a><a href="#process">Process</a>
+        </div>
+        <div>
+          <h5>Live Sites</h5>
+          <a href="https://warthog-guest-lodge.pages.dev" target="_blank" rel="noopener">Warthog Guest Lodge</a>
+          <a href="https://skyroarer-media.pages.dev" target="_blank" rel="noopener">Skyroarer Media</a>
+        </div>
+        <div>
+          <h5>Contact</h5>
+          <a class="js-wa" href="#">WhatsApp 078 599 2570</a>
+          <a href="tel:+263785992570">Call 078 599 2570</a>
+        </div>
+      </div>
+    </div>
+    <div class="f-bot">
+      <span>© <span id="yr">2026</span> Phillip — Web Design. Harare, Zimbabwe.</span>
+      <span>Built from scratch. No page builders.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="fab js-wa" href="#" aria-label="WhatsApp">💬</a>
+
+<script>
+(function(){
+  'use strict';
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---------- WhatsApp links (single source of truth) ----------
+  var WA = 'https://wa.me/263785992570?text=' + encodeURIComponent(
+    "Hi Phillip, I saw your website and I'd like to get a site for my business."
+  );
+  document.querySelectorAll('.js-wa').forEach(function(a){
+    a.href = WA; a.target = '_blank'; a.rel = 'noopener';
+  });
+
+  // ---------- starfield ----------
+  var cv = document.getElementById('stars'), ctx = cv.getContext('2d'), stars = [], w, h, dpr;
+  function initStars(){
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    w = cv.width = innerWidth * dpr; h = cv.height = innerHeight * dpr;
+    cv.style.width = innerWidth + 'px'; cv.style.height = innerHeight + 'px';
+    var n = Math.min(Math.round(innerWidth * innerHeight / 9000), 150);
+    stars = [];
+    for (var i = 0; i < n; i++) stars.push({
+      x: Math.random()*w, y: Math.random()*h,
+      r: (Math.random()*1.3 + .3) * dpr,
+      a: Math.random()*.5 + .2,
+      s: Math.random()*.02 + .004,
+      p: Math.random()*Math.PI*2
+    });
+  }
+  function drawStars(){
+    ctx.clearRect(0,0,w,h);
+    for (var i=0;i<stars.length;i++){
+      var st = stars[i];
+      st.p += st.s;
+      ctx.globalAlpha = st.a + Math.sin(st.p)*.22;
+      ctx.fillStyle = '#cbd5f5';
+      ctx.beginPath(); ctx.arc(st.x, st.y, st.r, 0, 6.284); ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+    requestAnimationFrame(drawStars);
+  }
+  initStars();
+  if (!reduce) drawStars(); else { ctx.globalAlpha=.45; stars.forEach(function(st){ ctx.fillStyle='#cbd5f5'; ctx.beginPath(); ctx.arc(st.x,st.y,st.r,0,6.284); ctx.fill(); }); }
+  addEventListener('resize', initStars, {passive:true});
+
+  // ---------- pointer: cursor glow + hero deck parallax ----------
+  var glow = document.getElementById('glow'), deck = document.getElementById('deck');
+  var px = innerWidth/2, py = innerHeight*.3, gx = px, gy = py, ticking = false;
+  function onMove(e){
+    px = e.clientX; py = e.clientY;
+    if (!ticking){ ticking = true; requestAnimationFrame(applyPointer); }
+  }
+  function applyPointer(){
+    ticking = false;
+    gx += (px - gx) * .12; gy += (py - gy) * .12;
+    glow.style.transform = 'translate(' + gx + 'px,' + gy + 'px) translate(-50%,-50%)';
+    if (deck){
+      var r = deck.getBoundingClientRect();
+      if (r.bottom > 0 && r.top < innerHeight){
+        var cx = (px - (r.left + r.width/2)) / r.width;
+        var cy = (py - (r.top + r.height/2)) / r.height;
+        deck.style.transform = 'rotateY(' + (cx*11).toFixed(2) + 'deg) rotateX(' + (-cy*8).toFixed(2) + 'deg)';
+      }
+    }
+    if (Math.abs(px-gx) > .5 || Math.abs(py-gy) > .5){ ticking = true; requestAnimationFrame(applyPointer); }
+  }
+  if (!reduce && matchMedia('(pointer:fine)').matches) addEventListener('mousemove', onMove, {passive:true});
+
+  // ---------- 3D tilt cards ----------
+  if (!reduce && matchMedia('(pointer:fine)').matches){
+    document.querySelectorAll('.tilt').forEach(function(card){
+      card.addEventListener('mousemove', function(e){
+        var r = card.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+        card.style.transform = 'perspective(900px) rotateY(' + ((x-.5)*13).toFixed(2) + 'deg) rotateX(' + ((.5-y)*13).toFixed(2) + 'deg) translateZ(8px)';
+        card.style.setProperty('--mx', (x*100) + '%');
+        card.style.setProperty('--my', (y*100) + '%');
+      });
+      card.addEventListener('mouseleave', function(){ card.style.transform = ''; });
+    });
+  }
+
+  // ---------- magnetic buttons ----------
+  if (!reduce && matchMedia('(pointer:fine)').matches){
+    document.querySelectorAll('.btn').forEach(function(b){
+      b.addEventListener('mousemove', function(e){
+        var r = b.getBoundingClientRect();
+        b.style.transform = 'translate(' + ((e.clientX-r.left-r.width/2)*.22).toFixed(1) + 'px,' + ((e.clientY-r.top-r.height/2)*.32).toFixed(1) + 'px)';
+      });
+      b.addEventListener('mouseleave', function(){ b.style.transform = ''; });
+    });
+  }
+
+  // ---------- scroll reveal ----------
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold:.08, rootMargin:'0px 0px -50px 0px' });
+  document.querySelectorAll('.rv').forEach(function(el,i){
+    el.style.transitionDelay = (Math.min(i%4,3)*80) + 'ms';
+    io.observe(el);
+  });
+  // safety net so nothing can stay invisible
+  addEventListener('load', function(){
+    setTimeout(function(){
+      document.querySelectorAll('.rv:not(.in)').forEach(function(el){ el.classList.add('in'); });
+    }, 900);
+  });
+
+  // ---------- nav ----------
+  var hdr = document.getElementById('hdr');
+  function onScroll(){ hdr.classList.toggle('stuck', scrollY > 40); }
+  onScroll(); addEventListener('scroll', onScroll, {passive:true});
+
+  var links = document.getElementById('links');
+  document.getElementById('burger').addEventListener('click', function(){ links.classList.toggle('open'); });
+  links.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ links.classList.remove('open'); }); });
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+})();
+</script>
+
+</body>
+</html>

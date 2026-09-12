@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Poster sheet</title>
+<style>
+  @import url('');
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#222;font-family:'Inter','Segoe UI',Helvetica,Arial,sans-serif;padding:40px;display:flex;flex-direction:column;gap:40px;align-items:flex-start}
+
+  .poster{position:relative;overflow:hidden;color:#fff;flex:none}
+  .sq{width:1080px;height:1080px}
+  .pt{width:1080px;height:1350px}
+  .st{width:1080px;height:1920px}
+
+  /* shared bg */
+  .bg-dark{background:#070a12}
+  .mesh{position:absolute;inset:0;pointer-events:none}
+  .mesh i{position:absolute;border-radius:50%;filter:blur(90px);display:block}
+  .m1{width:620px;height:620px;background:rgba(99,102,241,.55);top:-180px;left:-160px}
+  .m2{width:560px;height:560px;background:rgba(14,165,233,.5);bottom:-200px;right:-140px}
+  .m3{width:420px;height:420px;background:rgba(236,72,153,.34);top:38%;right:-160px}
+  .grid-lines{
+    position:absolute;inset:0;opacity:.14;
+    background-image:linear-gradient(rgba(255,255,255,.6) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.6) 1px,transparent 1px);
+    background-size:74px 74px;
+    -webkit-mask-image:radial-gradient(ellipse at 50% 40%,#000 20%,transparent 78%);
+            mask-image:radial-gradient(ellipse at 50% 40%,#000 20%,transparent 78%);
+  }
+  .inner{position:relative;z-index:3;height:100%;display:flex;flex-direction:column;padding:76px 72px}
+
+  .brandrow{display:flex;align-items:center;gap:16px;margin-bottom:auto}
+  .logo{width:64px;height:64px;border-radius:17px;display:grid;place-items:center;font-size:29px;font-weight:900;
+    background:linear-gradient(135deg,#6366f1,#0ea5e9);box-shadow:0 10px 34px rgba(99,102,241,.55);letter-spacing:-1px}
+  .bname{font-size:31px;font-weight:800;letter-spacing:-.5px;line-height:1.1}
+  .bname small{display:block;font-size:16px;font-weight:600;color:#94a3b8;letter-spacing:3.4px;text-transform:uppercase;margin-top:3px}
+
+  .tagpill{display:inline-flex;align-items:center;gap:12px;align-self:flex-start;
+    background:rgba(255,255,255,.09);border:1.5px solid rgba(255,255,255,.2);
+    padding:13px 26px;border-radius:100px;font-size:19px;font-weight:700;letter-spacing:2.6px;text-transform:uppercase;color:#a5b4fc}
+  .tagpill .d{width:9px;height:9px;border-radius:50%;background:#34d399;box-shadow:0 0 14px #34d399}
+
+  h1{font-size:104px;line-height:.98;font-weight:900;letter-spacing:-4.4px}
+  h1 .g{background:linear-gradient(100deg,#818cf8,#38bdf8 55%,#22d3ee);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .sub{font-size:29px;color:#c3cddb;line-height:1.5;font-weight:450}
+
+  .pricebox{display:flex;align-items:flex-end;gap:20px}
+  .from{font-size:25px;color:#94a3b8;font-weight:700;text-transform:uppercase;letter-spacing:3px;padding-bottom:22px}
+  .amt{font-size:172px;font-weight:900;letter-spacing:-9px;line-height:.8;
+    background:linear-gradient(160deg,#fff 20%,#a5b4fc);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .amt sup{font-size:74px;vertical-align:super;letter-spacing:-2px}
+
+  .feat{display:flex;flex-direction:column;gap:19px}
+  .feat div{display:flex;align-items:center;gap:17px;font-size:27px;font-weight:600;color:#e2e8f0}
+  .ck{width:37px;height:37px;flex:none;border-radius:50%;display:grid;place-items:center;font-size:18px;font-weight:900;
+    background:rgba(52,211,153,.18);border:1.5px solid rgba(52,211,153,.5);color:#34d399}
+
+  .footbar{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:24px;
+    border-top:1.5px solid rgba(255,255,255,.16);padding-top:32px}
+  .wa{display:flex;align-items:center;gap:16px}
+  .waico{width:66px;height:66px;border-radius:50%;background:#25D366;display:grid;place-items:center;font-size:32px;
+    box-shadow:0 8px 28px rgba(37,211,102,.5)}
+  .wanum{font-size:37px;font-weight:900;letter-spacing:-1px;line-height:1.1}
+  .wanum small{display:block;font-size:16px;font-weight:700;color:#94a3b8;letter-spacing:2.6px;text-transform:uppercase;margin-top:3px}
+  .cta-chip{background:#fff;color:#070a12;font-size:24px;font-weight:900;padding:20px 36px;border-radius:100px;letter-spacing:-.3px;white-space:nowrap}
+
+  /* ---- tiers ---- */
+  .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .tier{background:rgba(255,255,255,.055);border:1.5px solid rgba(255,255,255,.14);border-radius:26px;padding:34px 26px;position:relative}
+  .tier.hot{background:linear-gradient(170deg,rgba(99,102,241,.32),rgba(14,165,233,.14));border-color:rgba(129,140,248,.62)}
+  .badge{position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:#34d399;color:#04231a;
+    font-size:15px;font-weight:900;padding:8px 18px;border-radius:100px;letter-spacing:1.6px;text-transform:uppercase;white-space:nowrap}
+  .tname{font-size:23px;font-weight:800;color:#a5b4fc;text-transform:uppercase;letter-spacing:2.2px;margin-bottom:14px}
+  .tprice{font-size:78px;font-weight:900;letter-spacing:-4px;line-height:.9;margin-bottom:6px}
+  .tprice sup{font-size:36px;vertical-align:super}
+  .tnote{font-size:18px;color:#94a3b8;margin-bottom:22px;font-weight:600}
+  .tlist{list-style:none;display:flex;flex-direction:column;gap:12px}
+  .tlist li{font-size:19px;color:#dbe3ec;padding-left:27px;position:relative;line-height:1.35;font-weight:500}
+  .tlist li::before{content:"✓";position:absolute;left:0;color:#34d399;font-weight:900}
+
+  /* ---- proof / mockups ---- */
+  .shots{position:relative;flex:1;display:flex;align-items:center;justify-content:center;margin:14px 0}
+  .lap{width:760px;border-radius:16px;overflow:hidden;border:8px solid #161c2b;box-shadow:0 44px 90px rgba(0,0,0,.72);
+    transform:perspective(1500px) rotateY(-15deg) rotateX(5deg)}
+  .lap img{width:100%;display:block}
+  .phone{position:absolute;right:36px;bottom:-8px;width:212px;border-radius:26px;overflow:hidden;border:7px solid #161c2b;
+    box-shadow:0 34px 70px rgba(0,0,0,.8);transform:perspective(1200px) rotateY(-13deg)}
+  .phone img{width:100%;display:block}
+
+  .logos{display:flex;flex-wrap:wrap;gap:13px}
+  .logos span{background:rgba(255,255,255,.08);border:1.4px solid rgba(255,255,255,.16);
+    padding:13px 22px;border-radius:100px;font-size:20px;font-weight:700;color:#cbd5e1}
+
+  .why{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .whycard{background:rgba(255,255,255,.055);border:1.5px solid rgba(255,255,255,.14);border-radius:22px;padding:30px 26px}
+  .whycard .ic{font-size:42px;margin-bottom:14px;display:block}
+  .whycard b{display:block;font-size:25px;font-weight:800;margin-bottom:8px;letter-spacing:-.4px}
+  .whycard p{font-size:19px;color:#94a3b8;line-height:1.45}
+</style>
+</head>
+<body>
+
+<!-- ============ P1 · MAIN OFFER (1080x1350) ============ -->
+<div class="poster pt bg-dark" id="p1">
+  <div class="mesh"><i class="m1"></i><i class="m2"></i><i class="m3"></i></div>
+  <div class="grid-lines"></div>
+  <div class="inner">
+    <div class="brandrow">
+      <div class="logo">P</div>
+      <div class="bname">Phillip<small>Web Design</small></div>
+    </div>
+
+    <div class="tagpill"><span class="d"></span> Now taking new clients</div>
+    <h1 style="margin:30px 0 24px">Your business<br>needs a <span class="g">website.</span></h1>
+    <p class="sub" style="margin-bottom:38px">Clean, modern, mobile-friendly sites for small<br>businesses. Live in days — not months.</p>
+
+    <div class="pricebox" style="margin-bottom:40px">
+      <span class="from">From only</span>
+      <span class="amt"><sup>$</sup>30</span>
+    </div>
+
+    <div class="feat">
+      <div><span class="ck">✓</span> Looks perfect on every phone</div>
+      <div><span class="ck">✓</span> WhatsApp booking button built in</div>
+      <div><span class="ck">✓</span> Free hosting to start — no monthly fees</div>
+      <div><span class="ck">✓</span> You only pay if you love it</div>
+    </div>
+
+    <div class="footbar">
+      <div class="wa">
+        <div class="waico">💬</div>
+        <div class="wanum">078 599 2570<small>WhatsApp me today</small></div>
+      </div>
+      <div class="cta-chip">Free mock-up →</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ P2 · PRICING TIERS (1080x1350) ============ -->
+<div class="poster pt bg-dark" id="p2">
+  <div class="mesh"><i class="m1"></i><i class="m2"></i></div>
+  <div class="grid-lines"></div>
+  <div class="inner">
+    <div class="brandrow">
+      <div class="logo">P</div>
+      <div class="bname">Phillip<small>Web Design</small></div>
+    </div>
+
+    <div style="margin:26px 0 16px">
+      <div class="tagpill"><span class="d"></span> Transparent pricing</div>
+    </div>
+    <h1 style="font-size:84px;letter-spacing:-3.6px;margin-bottom:16px">Website prices<br><span class="g">everyone can afford.</span></h1>
+    <p class="sub" style="margin-bottom:46px;font-size:26px">One-off payment. No hidden costs. No monthly surprises.</p>
+
+    <div class="tiers">
+      <div class="tier">
+        <div class="tname">Starter</div>
+        <div class="tprice"><sup>$</sup>30</div>
+        <div class="tnote">One-page site</div>
+        <ul class="tlist">
+          <li>1 page, all your info</li>
+          <li>Contact &amp; hours</li>
+          <li>WhatsApp button</li>
+          <li>Mobile friendly</li>
+        </ul>
+      </div>
+      <div class="tier hot">
+        <div class="badge">Most popular</div>
+        <div class="tname">Business</div>
+        <div class="tprice"><sup>$</sup>60</div>
+        <div class="tnote">Full single page</div>
+        <ul class="tlist">
+          <li>Everything in Starter</li>
+          <li>Photo gallery</li>
+          <li>Services &amp; pricing</li>
+          <li>Enquiry form</li>
+          <li>Google Maps</li>
+        </ul>
+      </div>
+      <div class="tier">
+        <div class="tname">Premium</div>
+        <div class="tprice"><sup>$</sup>120</div>
+        <div class="tnote">Multi-page</div>
+        <ul class="tlist">
+          <li>Everything in Business</li>
+          <li>Multiple pages</li>
+          <li>Booking system</li>
+          <li>Admin dashboard</li>
+          <li>Priority support</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top:auto;display:flex;gap:14px;flex-wrap:wrap;padding-top:44px">
+      <span class="logos" style="display:contents">
+        <span style="background:rgba(52,211,153,.13);border:1.4px solid rgba(52,211,153,.4);padding:16px 26px;border-radius:100px;font-size:21px;font-weight:700;color:#6ee7b7">✓ Free mock-up first</span>
+        <span style="background:rgba(255,255,255,.08);border:1.4px solid rgba(255,255,255,.16);padding:16px 26px;border-radius:100px;font-size:21px;font-weight:700;color:#cbd5e1">✓ Free hosting included</span>
+        <span style="background:rgba(255,255,255,.08);border:1.4px solid rgba(255,255,255,.16);padding:16px 26px;border-radius:100px;font-size:21px;font-weight:700;color:#cbd5e1">✓ Live in days</span>
+        <span style="background:rgba(255,255,255,.08);border:1.4px solid rgba(255,255,255,.16);padding:16px 26px;border-radius:100px;font-size:21px;font-weight:700;color:#cbd5e1">✓ Custom domain optional</span>
+      </span>
+    </div>
+
+    <div class="footbar" style="margin-top:38px">
+      <div class="wa">
+        <div class="waico">💬</div>
+        <div class="wanum">078 599 2570<small>WhatsApp for a free quote</small></div>
+      </div>
+      <div class="cta-chip">Pay only when happy</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ P3 · PROOF / PORTFOLIO (1080x1350) ============ -->
+<div class="poster pt bg-dark" id="p3">
+  <div class="mesh"><i class="m1"></i><i class="m2"></i><i class="m3"></i></div>
+  <div class="grid-lines"></div>
+  <div class="inner">
+    <div class="brandrow">
+      <div class="logo">P</div>
+      <div class="bname">Phillip<small>Web Design</small></div>
+    </div>
+
+    <div style="margin:22px 0 14px"><div class="tagpill"><span class="d"></span> Real work · Real clients</div></div>
+    <h1 style="font-size:78px;letter-spacing:-3.2px;margin-bottom:14px">This could be<br><span class="g">your business.</span></h1>
+
+    <div class="shots">
+      <div class="lap"><img src="../phillip/images/warthog-desktop.jpg" alt=""></div>
+      <div class="phone"><img src="../phillip/images/skyroarer-mobile.jpg" alt=""></div>
+    </div>
+
+    <div class="logos" style="margin-bottom:34px">
+      <span>Warthog Guest Lodge</span>
+      <span>Skyroarer Media</span>
+      <span>Nicki Solar Systems</span>
+      <span>Flame International</span>
+      <span>Pathway Schools</span>
+    </div>
+
+    <div class="footbar">
+      <div class="wa">
+        <div class="waico">💬</div>
+        <div class="wanum">078 599 2570<small>Sites from $30</small></div>
+      </div>
+      <div class="cta-chip">See my work →</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ P4 · WHY YOU NEED ONE (1080x1080) ============ -->
+<div class="poster sq bg-dark" id="p4">
+  <div class="mesh"><i class="m1"></i><i class="m2"></i></div>
+  <div class="grid-lines"></div>
+  <div class="inner" style="padding:64px 62px">
+    <div class="brandrow" style="margin-bottom:0">
+      <div class="logo">P</div>
+      <div class="bname">Phillip<small>Web Design</small></div>
+    </div>
+
+    <h1 style="font-size:70px;letter-spacing:-2.8px;margin:34px 0 34px">Still sending<br>customers to a<br><span class="g">Facebook page?</span></h1>
+
+    <div class="why" style="margin-bottom:auto">
+      <div class="whycard"><span class="ic">🔎</span><b>Found on Google</b><p>Customers search before they buy. A page can't rank — a site can.</p></div>
+      <div class="whycard"><span class="ic">⭐</span><b>Look legit</b><p>A real website tells people you're a serious, established business.</p></div>
+      <div class="whycard"><span class="ic">📱</span><b>Book on WhatsApp</b><p>One tap and the enquiry lands straight in your chat.</p></div>
+      <div class="whycard"><span class="ic">🕐</span><b>Open 24/7</b><p>Your prices and info are there even while you sleep.</p></div>
+    </div>
+
+    <div class="footbar" style="padding-top:28px">
+      <div class="wa">
+        <div class="waico">💬</div>
+        <div class="wanum">078 599 2570<small>From $30 · WhatsApp me</small></div>
+      </div>
+      <div class="cta-chip">Get started →</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ P5 · STORY (1080x1920) ============ -->
+<div class="poster st bg-dark" id="p5">
+  <div class="mesh"><i class="m1" style="width:760px;height:760px"></i><i class="m2" style="width:700px;height:700px"></i><i class="m3"></i></div>
+  <div class="grid-lines"></div>
+  <div class="inner" style="padding:120px 76px;justify-content:center;text-align:center;align-items:center">
+    <div class="brandrow" style="margin:0 0 auto;justify-content:center">
+      <div class="logo">P</div>
+      <div class="bname" style="text-align:left">Phillip<small>Web Design</small></div>
+    </div>
+
+    <div class="tagpill" style="align-self:center"><span class="d"></span> Harare · Remote</div>
+    <h1 style="font-size:118px;letter-spacing:-5px;margin:38px 0 30px">Get your<br>business<br><span class="g">online.</span></h1>
+    <p class="sub" style="font-size:33px;margin-bottom:52px">Modern websites for small businesses.<br>Built fast. Priced fair.</p>
+
+    <div class="pricebox" style="justify-content:center;margin-bottom:56px">
+      <span class="from">From only</span>
+      <span class="amt" style="font-size:210px"><sup>$</sup>30</span>
+    </div>
+
+    <div class="feat" style="align-items:flex-start;text-align:left;margin-bottom:auto">
+      <div><span class="ck">✓</span> Free mock-up before you pay</div>
+      <div><span class="ck">✓</span> Live in a few days</div>
+      <div><span class="ck">✓</span> Free hosting included</div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;align-items:center;gap:26px;margin-top:56px">
+      <div class="waico" style="width:104px;height:104px;font-size:52px">💬</div>
+      <div style="font-size:56px;font-weight:900;letter-spacing:-1.6px">078 599 2570</div>
+      <div class="cta-chip" style="font-size:29px;padding:24px 48px">Swipe up · WhatsApp me</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
